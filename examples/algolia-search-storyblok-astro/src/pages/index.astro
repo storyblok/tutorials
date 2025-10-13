@@ -1,0 +1,14 @@
+---
+import Layout from '../components/Layout.astro';
+import SearchPage from '../components/SearchPage.tsx';
+---
+
+<Layout>
+  <SearchPage client:load />
+</Layout>
+<style is:inline>
+  .ais-Hits-list {
+    display: grid;
+    gap: 2rem;
+  }
+</style>
