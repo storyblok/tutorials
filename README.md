@@ -9,7 +9,7 @@ It serves as a central hub for learning materials, integration examples, and ste
 
 ## Get started
 
-The projects in this repository are organized by topic, and follow a clear name pattern: `tech-keyword`. This means that you can find the code for the tutorial **Integrate Algolia Search into Storyblok with Astro** in `[search/astro-algolia](search/algolia)` and the code for the tutorial **Build a GEO-ready website with Storyblok and Astro** in `[ai/astro-geo](ai/astro-geo)`.
+The projects in this repository are organized by topic, and follow a clear name pattern: `tech-keyword`. This means that you can find the code for the tutorial **Integrate Algolia Search into Storyblok with Astro** in `search/astro-algolia` and the code for the tutorial **Build a GEO-ready website with Storyblok and Astro** in `ai/astro-geo`.
 
 Each tutorial is stored in a directory that includes a `README` file with setup instructions, links, and relevant information.
 
