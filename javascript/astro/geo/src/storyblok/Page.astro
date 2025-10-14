@@ -1,0 +1,18 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import { richTextToHTML } from '@storyblok/astro/client';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+const { blok } = Astro.props;
+
+const renderedRichText = await richTextToHTML(blok.content);
+---
+
+<main {...storyblokEditable(blok)}>
+	{
+		blok.body?.map((blok) => {
+			return <StoryblokComponent blok={blok} />;
+		})
+	}
+	<Fragment set:html={renderedRichText} />
+</main>

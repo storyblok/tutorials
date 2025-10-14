@@ -1,0 +1,14 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [
+    "../../javascript/astro/algolia-search/.astro/types.d.ts",
+    "../../javascript/astro/algolia-search/**/*"
+  ],
+  "exclude": [
+    "../../javascript/astro/algolia-search/dist"
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
+}

@@ -9,14 +9,18 @@ This repository includes all the code necessary to follow our latest [Integrate 
 
 **No Storyblok account yet? [Sign up now](https://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=tutorials) to experience a 14-day free trial of all features.**
 
-### 1. Clone this repository
+### 1. Clone this project from the repository
 
 ```sh
-# git clone https://github.com/storyblok/tutorials/javascript/astro/algolia-search.git
-
 git clone --no-checkout --depth 1 --sparse --filter=blob:none https://github.com/storyblok/tutorials.git
 cd tutorials
 git sparse-checkout set javascript/astro/algolia-search
+git checkout
+
+
+git clone --sparse --filter=blob:none https://github.com/storyblok/tutorials.git
+cd tutorials
+git sparse-checkout add examples/algolia-search-storyblok-astro
 git checkout
 
 ```

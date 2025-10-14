@@ -1,0 +1,19 @@
+{
+	"devDependencies": {
+		"@joplin/turndown-plugin-gfm": "^1.0.63",
+		"@storyblok/astro": "^7.3.1",
+		"astro": "^5.13.9",
+		"turndown": "^7.2.1",
+		"vite": "^7.1.6",
+		"vite-plugin-mkcert": "^1.17.8"
+	},
+	"name": "tutorial-astro-geo",
+	"scripts": {
+		"astro": "astro",
+		"build": "astro build",
+		"dev": "astro dev",
+		"preview": "astro preview"
+	},
+	"type": "module",
+	"version": "1.0.0"
+}
