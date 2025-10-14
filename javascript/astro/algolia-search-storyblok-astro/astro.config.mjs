@@ -10,7 +10,7 @@ const env = loadEnv(process.env.NODE_ENV || '', process.cwd(), '');
 export default defineConfig({
   integrations: [
     storyblok({
-      accessToken: env.PUBLIC_STORYBLOK_API_KEY,
+      accessToken: env.STORYBLOK_DELIVERY_API_TOKEN,
       enableFallbackComponent: true,
     }),
     react(),

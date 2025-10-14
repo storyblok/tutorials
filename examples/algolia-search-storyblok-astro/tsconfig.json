@@ -1,14 +1,1 @@
-{
-  "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ],
-  "exclude": [
-    "dist"
-  ],
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
-  }
-}
+../../javascript/astro/algolia-search-storyblok-astro/.astro/types.d.ts../../javascript/astro/algolia-search-storyblok-astro/**/*../../javascript/astro/algolia-search-storyblok-astro/dist
