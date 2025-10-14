@@ -7,20 +7,17 @@ This repository includes all the code necessary to follow [tutorials](https://st
 
 ## Get started
 
-Each tutorial includes its own `README` file with setup instructions and explanations.
+The projects are organized by language and platform.
+Each tutorial includes its own `README` file with setup instructions, links, and relevant information.
 
-You can clone any tutorial folder and use it as a standalone project.  
+You can clone any tutorial and use it as a standalone project.
 
-Tutorials are arranged by language and platform.
+> [!TIP]
+> **No Storyblok account yet? [Sign up now](https://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=tutorials) to experience a 14-day free trial of all features.**
 
-**No Storyblok account yet? [Sign up now](https://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=tutorials) to experience a 14-day free trial of all features.**
+## Tutorial list
 
-## Tutorials overview
-
-| Tutorial                                                                 | Description                                                                 |
-| ------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
-| [Integrate Algolia Search into Storyblok with Astro](javascript/astro/algolia-astro) | Learn how to connect Algolia with Storyblok in an Astro project for instant search. |
-| [Build a Blog with Next.js and Storyblok](javascript/next/nextjs-blog)         | Step-by-step guide to building a full-featured blog using Next.js and Storyblok. |
-| [Deploy Storyblok and Nuxt Site on Netlify](hosting/netlify/nuxt-netlify)        | Learn how to deploy your Storyblok-powered Nuxt site to Netlify.             |
-
-Title Description View source Read
+- [Integrate Algolia Search into Storyblok with Astro](javascript/astro/algolia-search)
+- [Build a Blog with Next.js and Storyblok](javascript/next/nextjs-blog)
+- [Deploy Storyblok and Nuxt Site on Netlify](hosting/netlify/nuxt-netlify)
+- [Build a GEO-ready website with Storyblok and Astro](javascript/astro/GEO)
