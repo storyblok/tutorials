@@ -21,7 +21,7 @@
   </a>
 </p>
 
-## 📚 Tutorials Overview
+## Tutorials Overview
 
 This monorepo contains official and community Storyblok tutorials.  
 Each tutorial is self-contained within its own folder and includes source code, documentation, and configuration files.
@@ -32,10 +32,10 @@ Each tutorial is self-contained within its own folder and includes source code, 
 | [Build a Blog with Next.js and Storyblok](tutorials/nextjs-blog)         | Step-by-step guide to building a full-featured blog using Next.js and Storyblok. |
 | [Deploy Storyblok + Nuxt Site on Netlify](tutorials/nuxt-netlify)        | Learn how to deploy your Storyblok-powered Nuxt app to Netlify.             |
 
-> 🧩 You can copy any tutorial folder and use it as a standalone project.  
+> You can copy any tutorial folder and use it as a standalone project.  
 > Each tutorial includes its own `README.md` with setup instructions and explanations.
 
-## 🧰 Structure
+## Structure
 
 ```
 
@@ -55,7 +55,7 @@ tutorials/
 - Tutorials may use different frameworks (Astro, Next.js, Nuxt, etc.).
 - No shared dependencies are required to copy or run individual tutorials.
 
-## 🛠️ Development
+## Development
 
 ### Prerequisites
 
@@ -83,7 +83,7 @@ tutorials/
    pnpm dev
    ```
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions from the community!
 To add a new tutorial:
@@ -93,11 +93,11 @@ To add a new tutorial:
 3. Use consistent naming conventions and structure.
 4. Submit a pull request following our [Contributing Guide](CONTRIBUTING.md).
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🔗 Links
+## Links
 
 * [Storyblok Documentation](https://www.storyblok.com/docs)
 * [Storyblok Website](https://www.storyblok.com)
