@@ -1,0 +1,33 @@
+---
+import { storyblokApi } from '@storyblok/astro/client';
+
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import Layout from '../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+	const links = await storyblokApi.getAll('cdn/links', {
+		version: 'draft',
+	});
+	return links
+		.filter((link) => !link.is_folder)
+		.map((link) => {
+			return {
+				params: {
+					slug: link.slug === 'home' ? undefined : link.slug,
+				},
+			};
+		});
+}
+
+const { slug } = Astro.params;
+
+const { data } = await storyblokApi.get(`cdn/stories/${slug || 'home'}`, {
+	version: 'draft',
+});
+
+const story = data.story;
+---
+
+<Layout>
+  <StoryblokComponent blok={story.content} />
+</Layout>

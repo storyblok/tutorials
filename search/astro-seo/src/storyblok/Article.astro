@@ -1,0 +1,17 @@
+---
+import { renderRichText, storyblokEditable } from '@storyblok/astro';
+import JSONLDSchema from '../components/JSONLDSchema.astro';
+
+const { blok } = Astro.props;
+
+const renderedRichText = renderRichText(blok.content);
+---
+
+<main>
+	<article {...storyblokEditable(blok)}>
+		<h1>{blok.title}</h1>
+    <Fragment set:html={renderedRichText} />
+	</article>
+</main>
+
+<JSONLDSchema {...Astro.props} />

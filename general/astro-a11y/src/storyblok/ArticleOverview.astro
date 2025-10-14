@@ -1,0 +1,27 @@
+---
+import { storyblokEditable, useStoryblokApi } from '@storyblok/astro';
+
+const storyblokApi = useStoryblokApi();
+const articles = await storyblokApi.getAll('cdn/stories', {
+	version: 'draft',
+	starts_with: 'articles',
+	content_type: 'article',
+});
+
+const { blok } = Astro.props;
+
+---
+
+<main {...storyblokEditable(blok)} id="main-content">
+	<h1>{blok.headline}</h1>
+	<ul>
+		{
+			articles.map((article) => (
+				<li>
+					<a href={article.slug}>{article.content.title}</a>
+					<p>{article.content.summary}</p>
+				</li>
+			))
+		}
+	</ul>
+</main>

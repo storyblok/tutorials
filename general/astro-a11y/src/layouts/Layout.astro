@@ -1,0 +1,26 @@
+---
+import InvalidHeadingWarning from '../components/A11yChecks/InvalidHeadingWarning.astro';
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Storyblok & Astro</title>
+		<link
+			rel="stylesheet"
+			href="https://a.storyblok.com/f/212319/x/e6ccda03b8/blueprint-blank.css"
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} "+ Storyblok" />
+	</head>
+	<body>
+	<InvalidHeadingWarning />
+		<Header />
+		<slot />
+		<footer>Storyblok 🩵 Accessibility | <a href="https://github.com/storyblok/tutorial-astro-a11y">GitHub</a></footer>
+	</body>
+</html>
