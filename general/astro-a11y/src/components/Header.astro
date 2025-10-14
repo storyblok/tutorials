@@ -1,0 +1,142 @@
+---
+import { useStoryblokApi } from '@storyblok/astro';
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get('cdn/stories/site_settings', {
+	version: 'draft',
+	resolve_links: 'url',
+});
+
+const headerNav = data?.story?.content?.header_nav;
+
+const currentPath = Astro.url.pathname;
+---
+<a href="#main-content">Skip to content</a>
+<header>
+	<a href="/"><img src="https://a.storyblok.com/f/325704/187x30/2d6101b247/brand-new-day-logo.svg" alt="Brand New Day" width="180" height="30" aria-label="Click to navigate to the homepage"></a>
+	<nav aria-label="Primary">
+		<button popovertarget="nav" popovertargetaction="show" aria-label="Open navigation">
+			<svg width="30" height="30" viewBox="-100 -100 200 200" aria-hidden="true"><path stroke-width="15" d="M-45-45h90M-45 0h90m-90 45h90"/></svg>
+		</button>
+		<ul popover id="nav">
+			<li><button popovertarget="nav" popovertargetaction="hide" aria-label="Close navigation"><svg width="30" height="30" aria-hidden="true"><path stroke-width="3" d="M18 6 6 18M6 6l12 12"/></svg></button></li>
+		{headerNav.map((nav_item) =>
+		<li><a href={`/${nav_item.link.cached_url}`} aria-current={currentPath.includes(`/${nav_item.link.cached_url}`) ? "page" : null}>{nav_item.link.story.name}</a></li>
+    )}
+		</ul>
+	</nav>
+</header>
+
+<style>
+a[href="#main-content"]:not(:focus-visible) {
+	overflow: hidden;
+	white-space:nowrap;
+	inline-size: 0;
+	block-size: 0;
+	inset: 0;
+	position: fixed;
+	transform: translateY(-10em);
+}
+
+a[href="#main-content"] {
+	transform: translateY(0em);
+	padding: 0.3em;
+}
+
+header {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	border-block-end: 1px solid;
+	padding-block-end: 1rem;
+}
+
+nav {
+	display: flex;
+	justify-content: end;
+	gap: 1rem;
+
+	& button {
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+
+	& ul {
+		list-style-type: "";
+	}
+
+	& li > button {
+		position: fixed;
+		top: 1.1rem;
+		right: 0.8rem;
+	}
+}
+
+button[popovertarget="nav"] svg {
+	stroke: currentcolor;
+	stroke-linecap: round;
+}
+
+[popover]:popover-open {
+	translate: 0 0;
+	opacity: 1;
+}
+
+[popover] {
+	inline-size: 250px;
+	block-size: 100svh;
+	left: auto;
+	border: none;
+	box-shadow: 0 0 5px currentcolor;
+	opacity: 0;
+	translate: 250px 0;
+}
+
+@starting-style {
+	[popover]:popover-open {
+		translate: 250px 0;
+		opacity: 0;
+	}
+}
+
+[popover]::backdrop {
+  background-color: hsl(0 0 0 / 0);
+}
+
+[popover]:popover-open::backdrop {
+  background-color: hsl(0 0 0 / 0.1);
+}
+
+@starting-style {
+  [popover]:popover-open::backdrop {
+    background-color: hsl(0 0 0 / 0);
+  }
+}
+
+[aria-current] {
+	font-weight: bolder;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	
+	a[href="#main-content"]:not(:focus-visible) {
+		transition: transform 0.2s ease-in-out;
+	}
+	[popover] {
+		transition: all 0.5s allow-discrete;
+		}
+	[popover]::backdrop {
+		transition: all 0.5s allow-discrete;
+}
+	}
+
+@media (min-width: 35rem) {
+	nav button {
+		display: none;
+	}
+	nav ul {
+		display: contents;
+	}
+}
+
+</style>

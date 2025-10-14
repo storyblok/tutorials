@@ -1,0 +1,63 @@
+<output data-invalid-headings-notice hidden class="warning"><svg viewBox="0 0 15 13" aria-hidden="true" height="24" width="24"><path fill="#FBCE41" fill-rule="evenodd" d="M6.49.52a1 1 0 0 1 1.736 0l6.277 10.984A1 1 0 0 1 13.635 13H1.08a1 1 0 0 1-.868-1.496L6.49.519ZM6.358 5a1 1 0 1 1 2 0v2a1 1 0 1 1-2 0V5Zm1 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z" clip-rule="evenodd"></path></svg>Fix the heading order</output>
+
+<script>
+
+import { findMultipleH1s, findSkippedHeadingLevels } from './a11yChecks';
+
+const invalidHeadings = document.querySelector(
+	'[data-invalid-headings-notice]',
+);
+
+if (invalidHeadings) {
+	const multipleH1s = findMultipleH1s();
+	const skippedHeadingLevels = findSkippedHeadingLevels();
+
+	if (multipleH1s.length > 0 || skippedHeadingLevels.length > 0) {
+		invalidHeadings.removeAttribute('hidden');
+	}
+
+	const warning = (HTMLHeadingElement, message) => {
+		HTMLHeadingElement.insertAdjacentHTML(
+			'afterbegin',
+			`<mark class="warning">⚠️ ${message}️:</mark>`,
+		);
+	};
+
+	multipleH1s.forEach((HTMLHeadingElement) =>
+		warning(HTMLHeadingElement, 'H1 already exists on this page'),
+	);
+	skippedHeadingLevels.forEach((HTMLHeadingElement) =>
+		warning(HTMLHeadingElement, 'You skipped a heading level'),
+	);
+}
+</script>
+
+<style is:global>
+output[data-invalid-headings-notice]:not([hidden]) {
+	display: inline-flex;
+	gap: 1em;
+	position: fixed;
+	left: 0;
+	padding: 10px;
+	color: marktext;
+}
+.warning {
+	background-color: #fef5d9;
+	border: 1px solid #feebb3;
+	opacity: 0.9;
+	border-radius: 0 8px 8px 0;
+	font-size: initial;
+	font-family: ui-serif, system-ui, serif;
+	letter-spacing: -0.05ch;
+}
+mark {
+	padding: 5px;
+	font-weight: initial;
+}
+:is(h1, h2, h3, h4, h5, h6):has(> mark) {
+	display: flex;
+	gap: 0.5ch;
+	align-items: center;
+	flex-wrap: wrap;
+}
+</style>

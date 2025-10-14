@@ -13,8 +13,8 @@ This repository includes all the code necessary to follow our latest [Build a GE
 
 ```sh
 git clone --no-checkout --depth 1 --filter=tree:0 https://github.com/storyblok/tutorials.git && cd tutorials
-git sparse-checkout set --no-cone /javascript/astro/algolia-search
-git checkout && cd javascript/astro/algolia-search
+git sparse-checkout set --no-cone /ai/astro-geo
+git checkout && cd ai/astro-geo
 
 ```
 

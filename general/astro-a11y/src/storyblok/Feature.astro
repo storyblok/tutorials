@@ -1,0 +1,12 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+const { blok } = Astro.props;
+
+const backgroundColor = blok.color || 'transparent';
+const { value } = backgroundColor;
+
+---
+
+<section {...storyblokEditable(blok)} class="feature" style={{ "background-color": value }}>
+	<p>{blok.name}</p>
+</section>
