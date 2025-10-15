@@ -20,10 +20,16 @@ You can clone any tutorial and use it as a standalone project.
 
 ## Tutorial list
 
-- [Integrate Algolia Search into Storyblok with Astro](search/astro-algolia)
-- [Master SEO with Storyblok and Astro](search/astro-seo)
-- [Bulk update AI-generated meta fields](ai/node-update-ai-seo)
-- [Build a GEO-ready website with Storyblok and Astro](ai/astro-geo)
+- [Integrate Algolia Search into Storyblok with Astro](https://github.com/storyblok/tutorials/search/astro-algolia)
+- [Bulk update AI-generated meta fields](https://github.com/storyblok/tutorials/ai/js-update-ai-seo)
+- [Build a GEO-ready website with Storyblok and Astro](https://github.com/storyblok/tutorials/ai/astro-geo)
+- [Master SEO with Storyblok and Astro](https://github.com/storyblok/tutorials/search/astro-seo)
+- [Build a Multilingual Website with Storyblok and Astro](https://github.com/storyblok/tutorials/general/astro-i18n-01)
+- [Build a Regionally Localized Website with Storyblok and Astro](https://github.com/storyblok/tutorials/general/astro-i18n-02)
+- [Build Accessible Websites with Storyblok and Astro](https://github.com/storyblok/tutorials/general/astro-a11y)
+- [Migrating a Blog Site from Contentful to Storyblok](https://github.com/storyblok/tutorials/migrations/js-contentful-exporter)
+- [Bring your Storyblok data into Claude by coding an MCP server](https://github.com/storyblok/tutorials/ai/js-mcp)
+- [Integrating ElevenLabs AI Text to Speech with a Headless CMS](https://github.com/storyblok/tutorials/ai/js-elevenlabs)
 
 ## Additional resources
 
