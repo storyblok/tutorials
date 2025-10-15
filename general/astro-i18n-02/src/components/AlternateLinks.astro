@@ -1,0 +1,29 @@
+---
+const { currentLanguage, story } = Astro.props;
+const alternateLinks = (story?.translated_slugs || [])
+	.filter((slug) => slug.lang !== currentLanguage)
+	.map((slug) => {
+		if (slug.lang === currentLanguage) return;
+		const path = slug.path === 'home' ? '' : slug.path;
+		return {
+			href: `${Astro.site}${slug.lang}/${path}`,
+			lang: slug.lang,
+		};
+	});
+
+if (currentLanguage) {
+	let defaultSlug = story.default_full_slug || story.full_slug;
+	if (defaultSlug === 'home') defaultSlug = '';
+	alternateLinks.push({
+		href: `${Astro.site}${defaultSlug}`,
+		lang: 'x-default',
+	});
+}
+---
+
+{
+	alternateLinks &&
+		alternateLinks.map(({ href, lang }) => (
+			<link rel="alternate" href={href} hreflang={lang} />
+		))
+}

@@ -1,0 +1,17 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import { getInternalLink } from '../utils/i18n';
+
+const { blok } = Astro.props;
+
+let url = '';
+if (blok.link.linktype === 'story') {
+	url = await getInternalLink(blok.link?.story?.full_slug);
+} else if (blok.link.linktype === 'url') {
+	url = blok.link?.url;
+}
+---
+
+<a href={url} class="button" {...storyblokEditable(blok)}>
+	{blok.label}
+</a>

@@ -1,0 +1,34 @@
+---
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+const { currentLanguage, blok } = Astro.props;
+const renderedRichText = renderRichText(blok.text);
+---
+
+<section class="image-text" {...storyblokEditable(blok)}>
+	{
+		blok.image && blok.image?.filename && (
+			<div>
+				<img src={blok.image.filename} alt={blok.image.alt} />
+			</div>
+		)
+	}
+	<div>
+		<h3>{blok.headline}</h3>
+		<Fragment set:html={renderedRichText} />
+		{
+			blok.buttons && blok.buttons.length > 0 && (
+				<div class="button-container">
+					{blok.buttons?.map((button) => {
+						return (
+							<StoryblokComponent
+								currentLanguage={currentLanguage}
+								blok={button}
+							/>
+						);
+					})}
+				</div>
+			)
+		}
+	</div>
+</section>

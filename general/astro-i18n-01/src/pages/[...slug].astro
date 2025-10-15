@@ -1,0 +1,67 @@
+---
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import Layout from '../layouts/Layout.astro';
+import { getLanguageCodes } from '../utils/i18n';
+
+export async function getStaticPaths() {
+	const languages = await getLanguageCodes();
+	const storyblokApi = useStoryblokApi();
+
+	const links = await storyblokApi.getAll('cdn/links', {
+		version: 'draft',
+	});
+
+	const staticPaths = [];
+
+	for (const link of links) {
+		if (link.is_folder) continue;
+
+		staticPaths.push({
+			params: {
+				slug: link.slug === 'home' ? undefined : link.slug,
+			},
+		});
+
+		if (link.alternates && link.alternates.length > 0) {
+			for (const alternate of link.alternates) {
+				if (languages.includes(alternate.lang)) {
+					if (alternate.translated_slug === 'home') continue;
+					staticPaths.push({
+						params: {
+							slug: `${alternate.lang}/${alternate.translated_slug}`,
+						},
+					});
+				}
+			}
+		}
+	}
+
+	return staticPaths;
+}
+
+const slug = Astro.params.slug?.split('/') ?? [];
+
+const languages = await getLanguageCodes();
+const language = languages.includes(slug[0]) ? slug[0] : undefined;
+
+if (language) {
+	slug.shift();
+}
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get(
+	`cdn/stories/${slug && slug.length > 0 ? slug.join('/') : 'home'}`,
+	{
+		version: 'draft',
+		resolve_links: 'story',
+		language,
+	},
+);
+
+const story = data.story;
+---
+
+<Layout currentLanguage={language} story={story}>
+	<StoryblokComponent currentLanguage={language} blok={story.content} />
+</Layout>
