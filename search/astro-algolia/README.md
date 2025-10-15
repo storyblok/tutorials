@@ -28,19 +28,11 @@ npm install
 
 Rename the file `.env.example` to `.env` and provide your Storyblok access token (find it under **Settings > Access Tokens** in your Storyblok space):
 
-```shell
-STORYBLOK_DELIVERY_API_TOKEN="<REPLACE_WITH_YOUR_TOKEN>"
+```txt
+STORYBLOK_DELIVERY_API_TOKEN=<REPLACE_WITH_YOUR_TOKEN>
 ```
 
 ## Set up the space
-
-Use [`storyblok CLI`](https://github.com/storyblok/storyblok-cli) to push the [schema](components.json) to your space.
-
-Replace `SPACE_ID` with your space ID (find it under **Settings > Space**):
-
-```shell
-storyblok components push --space SPACE_ID
-```
 
 To render a preview of the local project in the Visual Editor, follow these steps:
 
@@ -53,7 +45,7 @@ To render a preview of the local project in the Visual Editor, follow these step
 
 Start the development server:
 
-```shell
+```sh
 npm run dev
 ```
 
