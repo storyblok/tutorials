@@ -8,6 +8,7 @@ Complete the following steps before you submit a PR.
 2. You named the project following the pattern `tech-keyword`
 3. You placed the project in the correct directory
 4. You updated the cloning instructions in the project `README`
+5. You added the project to the list of tutorials in the main `README`
 
 > [!TIP]
 > If you're writing a series of tutorials that use the same codebase, create numbered sub-directories (for example, `astro-i18n-part-1`).
