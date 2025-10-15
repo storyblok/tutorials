@@ -2,6 +2,7 @@
   "name": "ai-search-storyblok-astro",
   "type": "module",
   "version": "0.0.1",
+  "keywords": ["algolia", "react"],
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

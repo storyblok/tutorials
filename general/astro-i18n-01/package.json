@@ -1,8 +1,8 @@
 {
-	"name": "blueprint-blank-astro",
+	"name": "astro-i18n-01",
 	"type": "module",
 	"version": "0.1.0",
-	"private": true,
+	"keywords": ["internationalization", "translation", "localization"],
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro build",

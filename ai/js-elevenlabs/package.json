@@ -5,6 +5,7 @@
   "author": "",
   "license": "ISC",
   "type": "module",
+  "keywords": ["elevenlabs", "netlify", "text-to-speech"],
   "dependencies": {
     "@netlify/functions": "^2.8.1",
     "cheerio": "^1.0.0",

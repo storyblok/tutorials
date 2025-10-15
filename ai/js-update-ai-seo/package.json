@@ -1,6 +1,7 @@
 {
 	"author": "Alba Silvente Fuentes (aka Dawntraoz)",
 	"description": "Use Storyblok's Management API to update AI SEO metadata in all content items",
+	"keywords": ["llm", "seo"],
 	"devDependencies": {
 		"storyblok-js-client": "^7.1.4"
 	},

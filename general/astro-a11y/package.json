@@ -1,7 +1,8 @@
 {
-	"name": "storyblok-astro-a11y-tutorial",
+	"name": "astro-a11y",
 	"type": "module",
 	"version": "0.0.1",
+	"keywords": ["accessibility", "wcag"],
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro build",

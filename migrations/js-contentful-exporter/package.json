@@ -11,5 +11,6 @@
   "devDependencies": {
     "node": "^22.15.21"
   },
-  "type": "module"
+  "type": "module",
+  "keywords": ["contentful", "migration"]
 }

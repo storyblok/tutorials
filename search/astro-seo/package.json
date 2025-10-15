@@ -2,6 +2,7 @@
 	"name": "tutorial-astro-seo",
 	"type": "module",
 	"version": "0.0.1",
+	"keywords": ["search engines", "open graph", "json-ld"],
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro build",
