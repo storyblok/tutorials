@@ -7,11 +7,11 @@ Complete the following steps before you submit a PR.
 1. You made changes in a separate "feature" branch (for example, `feat/astro-seo`)
 2. You named the project following the pattern `tech-keyword`
 3. You placed the project in the correct directory
-4. You updated the cloning instructions in the project `README`
+4. You updated the cloning instructions in the project's `README` (use [this file](https://github.com/storyblok/tutorials/ai/astro-geo/README.md) as a template)
 5. You added the project to the list of tutorials in the main `README`
 
 > [!TIP]
-> If you're writing a series of tutorials that use the same codebase, create numbered sub-directories (for example, `astro-i18n-part-1`).
+> If you're writing a series of tutorials that use the same codebase, create numbered sub-directories (for example, `astro-i18n-01`).
 
 If everything is in order, open a PR.
 
