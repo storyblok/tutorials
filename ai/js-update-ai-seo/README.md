@@ -13,8 +13,8 @@ This repository includes all the code necessary to follow our latest [Bulk updat
 
 ```sh
 git clone --no-checkout --depth 1 --filter=tree:0 https://github.com/storyblok/tutorials.git && cd tutorials
-git sparse-checkout set --no-cone /ai/node-update-ai-seo
-git checkout && cd ai/node-update-ai-seo
+git sparse-checkout set --no-cone /ai/js-update-ai-seo
+git checkout && cd ai/js-update-ai-seo
 
 ```
 
@@ -47,7 +47,7 @@ AI_CUSTOM_PROMPT="Your_prompt_here"
 
 To regenerate and update SEO metadata for stories using AI, run:
 
-```shell
+```sh
 # Test (recommended first)
 npm run update -- --dry-run
 
