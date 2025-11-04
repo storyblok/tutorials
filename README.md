@@ -15,7 +15,7 @@ For more information, check out
 
 The projects in this repository demonstrate what's possible with Storyblok: how to build, integrate, deploy, and migrate your website. Directories are organized by use cases, and follow a clear name pattern: `topic-tech`.
 
-This means that you can find the code for the tutorial **Integrate Algolia Search into Storyblok with Astro** in the `integrate/algolia` directory, and the code for the tutorial **Build a GEO-ready website with Storyblok and Astro** in the `build/seo-astro-02`.
+This means that you can find the code for the tutorial **Integrate Algolia Search into Storyblok with Astro** in the `integrate/algolia` directory, and the code for the tutorial **Build a GEO-ready website with Storyblok and Astro** in the `build/geo-astro`.
 
 >[!TIP]
 >Storyblok offers [mature SDKs](https://github.com/storyblok/monoblok) for popular frontend frameworks. Feel free to adapt the code examples to the framework or programming language of your choosing.
@@ -37,9 +37,6 @@ Explore these tutorials to learn how to take advantage of Storyblok's native fea
 
 You can clone any individual tutorial and use it as a standalone project.
 
-> [!TIP]
-> **No Storyblok account yet? [Sign up now](https://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=tutorials) to experience a 14-day free trial of all features.**
-
 ## Tutorials list
 
 - [Integrate Algolia Search into Storyblok with Astro](https://github.com/storyblok/tutorials/integrate/algolia)
@@ -52,6 +49,9 @@ You can clone any individual tutorial and use it as a standalone project.
 - [Migrating a Blog Site from Contentful to Storyblok](https://github.com/storyblok/tutorials/migrate/from-contentful)
 - [Bring your Storyblok data into Claude by coding an MCP server](https://github.com/storyblok/tutorials/integrate/mcp)
 - [Integrating ElevenLabs AI Text to Speech with a Headless CMS](https://github.com/storyblok/tutorials/integrate/elevenlabs)
+
+> [!TIP]
+> **No Storyblok account yet? [Sign up now](https://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=tutorials) to experience a 14-day free trial of all features.**
 
 ## Additional resources
 
