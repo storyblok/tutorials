@@ -1,3 +1,9 @@
+---
+title: 
+description: 
+tags: 
+---
+
 # SEO with Storyblok and Astro
 
 This repository includes all the code necessary to follow our latest [Better SEO with Storyblok and Astro](https://storyblok.com/tp/better-seo-with-storyblok-and-astro) tutorial.
@@ -13,8 +19,8 @@ This repository includes all the code necessary to follow our latest [Better SEO
 
 ```sh
 git clone --no-checkout --depth 1 --filter=tree:0 https://github.com/storyblok/tutorials.git && cd tutorials
-git sparse-checkout set --no-cone /search/astro-seo
-git checkout && cd search/astro-seo
+git sparse-checkout set --no-cone /build/seo-astro-01
+git checkout && cd build/seo-astro-01
 
 ```
 

@@ -1,3 +1,9 @@
+---
+title: 
+description: 
+tags: 
+---
+
 # Build a GEO-ready website with Storyblok and Astro
 
 This repository includes all the code necessary to follow our latest [Build a GEO-ready website with Storyblok and Astro](https://storyblok.com/tp/geo-ready-website-storyblok-astro) tutorial.
@@ -13,8 +19,8 @@ This repository includes all the code necessary to follow our latest [Build a GE
 
 ```sh
 git clone --no-checkout --depth 1 --filter=tree:0 https://github.com/storyblok/tutorials.git && cd tutorials
-git sparse-checkout set --no-cone /ai/astro-geo
-git checkout && cd ai/astro-geo
+git sparse-checkout set --no-cone /build/seo-astro-02
+git checkout && cd build/seo-astro-02
 
 ```
 

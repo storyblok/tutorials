@@ -1,3 +1,9 @@
+---
+title: 
+description: 
+tags: 
+---
+
 # Build a multilingual website with Storyblok and Astro
 
 This repository includes all the code necessary to follow our latest [Build a Multilingual Website with Storyblok and Astro](https://storyblok.com/tp/multilingual-website-storyblok-astro) tutorial.
@@ -13,8 +19,8 @@ This repository includes all the code necessary to follow our latest [Build a Mu
 
 ```sh
 git clone --no-checkout --depth 1 --filter=tree:0 https://github.com/storyblok/tutorials.git && cd tutorials
-git sparse-checkout set --no-cone /general/astro-i18n-01
-git checkout && cd general/astro-i18n-01
+git sparse-checkout set --no-cone /build/multilingual-astro-01
+git checkout && cd build/multilingual-astro-01
 
 ```
 

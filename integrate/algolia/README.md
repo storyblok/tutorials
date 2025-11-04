@@ -1,3 +1,9 @@
+---
+title: 
+description: 
+tags: 
+---
+
 # Integrate Algolia search into Storyblok with Astro
 
 This repository includes all the code necessary to follow our latest [Integrate Algolia Search into Storyblok with Astro](https://storyblok.com/tp/integrate-algolia-search-into-storyblok-with-astro) tutorial.
@@ -13,8 +19,8 @@ This repository includes all the code necessary to follow our latest [Integrate 
 
 ```sh
 git clone --no-checkout --depth 1 --filter=tree:0 https://github.com/storyblok/tutorials.git && cd tutorials
-git sparse-checkout set --no-cone /search/astro-algolia
-git checkout && cd search/astro-algolia
+git sparse-checkout set --no-cone /integrate/algolia
+git checkout && cd integrate/algolia
 
 ```
 

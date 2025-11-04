@@ -1,3 +1,9 @@
+---
+title: 
+description: 
+tags: 
+---
+
 # Build accessible websites with Storyblok and Astro
 
 This repository includes all the code necessary to follow our latest [Build Accessible Websites with Storyblok and Astro](https://storyblok.com/tp/build-accessible-websites-with-storyblok-astro) tutorial.
@@ -13,8 +19,8 @@ This repository includes all the code necessary to follow our latest [Build Acce
 
 ```sh
 git clone --no-checkout --depth 1 --filter=tree:0 https://github.com/storyblok/tutorials.git && cd tutorials
-git sparse-checkout set --no-cone /general/astro-a11y
-git checkout && cd general/astro-a11y
+git sparse-checkout set --no-cone /build/accessible-astro
+git checkout && cd build/accessible-astro
 
 ```
 

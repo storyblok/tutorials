@@ -1,3 +1,9 @@
+---
+title: 
+description: 
+tags: 
+---
+
 # Build a GEO-ready website with Storyblok and Astro
 
 This repository includes all the code necessary to follow our latest [Bring your Storyblok data into Claude by coding an MCP server](https://www.storyblok.com/tp/bring-your-storyblok-data-into-claude-by-coding-an-mcp-server) tutorial.
@@ -13,8 +19,8 @@ This repository includes all the code necessary to follow our latest [Bring your
 
 ```sh
 git clone --no-checkout --depth 1 --filter=tree:0 https://github.com/storyblok/tutorials.git && cd tutorials
-git sparse-checkout set --no-cone /ai/js-mcp
-git checkout && cd ai/js-mcp
+git sparse-checkout set --no-cone /integrate/mcp
+git checkout && cd integrate/mcp
 
 ```
 

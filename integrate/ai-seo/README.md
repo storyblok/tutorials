@@ -1,3 +1,9 @@
+---
+title: 
+description: 
+tags: 
+---
+
 # Bulk update AI-generated meta fields
 
 This repository includes all the code necessary to follow our latest [Bulk update AI-generated meta fields](https://storyblok.com/tp/bulk-update-ai-seo) tutorial.
@@ -13,8 +19,8 @@ This repository includes all the code necessary to follow our latest [Bulk updat
 
 ```sh
 git clone --no-checkout --depth 1 --filter=tree:0 https://github.com/storyblok/tutorials.git && cd tutorials
-git sparse-checkout set --no-cone /ai/js-update-ai-seo
-git checkout && cd ai/js-update-ai-seo
+git sparse-checkout set --no-cone /integrate/ai-seo
+git checkout && cd integrate/ai-seo
 
 ```
 

@@ -1,3 +1,9 @@
+---
+title: 
+description: 
+tags: 
+---
+
 # Integrating ElevenLabs AI text-to-speech with a headless CMS
 
 This repository includes all the code necessary to follow our latest [Integrating ElevenLabs AI Text to Speech with a Headless CMS](https://storyblok.com/tp/integrating-elevenlabs-ai-text-to-speech-headless-cms) tutorial.
@@ -13,8 +19,8 @@ This repository includes all the code necessary to follow our latest [Integratin
 
 ```sh
 git clone --no-checkout --depth 1 --filter=tree:0 https://github.com/storyblok/tutorials.git && cd tutorials
-git sparse-checkout set --no-cone /ai/js-elevenlabs
-git checkout && cd ai/js-elevenlabs
+git sparse-checkout set --no-cone /integrate/elevenlabs
+git checkout && cd integrate/elevenlabs
 
 ```
 

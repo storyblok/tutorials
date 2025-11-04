@@ -1,3 +1,9 @@
+---
+title: 
+description: 
+tags: 
+---
+
 # contentful-exporter
 
 
@@ -14,8 +20,8 @@ This repository includes all the code necessary to follow our latest [Migrating 
 
 ```sh
 git clone --no-checkout --depth 1 --filter=tree:0 https://github.com/storyblok/tutorials.git && cd tutorials
-git sparse-checkout set --no-cone /migration/js-contentful-exporter
-git checkout && cd migration/js-contentful-exporter
+git sparse-checkout set --no-cone /migrate/from-contentful
+git checkout && cd migrate/from-contentful
 ```
 
 ### 2. Install all dependencies

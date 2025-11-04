@@ -1,3 +1,9 @@
+---
+title: 
+description: 
+tags: 
+---
+
 # Build a regionally localized website with Storyblok and Astro
 
 This repository includes all the code necessary to follow our latest [Build a Regionally Localized Website with Storyblok and Astro](https://www.storyblok.com/tp/regionally-localized-website-storyblok-astro) tutorial.
@@ -13,8 +19,8 @@ This repository includes all the code necessary to follow our latest [Build a Re
 
 ```sh
 git clone --no-checkout --depth 1 --filter=tree:0 https://github.com/storyblok/tutorials.git && cd tutorials
-git sparse-checkout set --no-cone /general/astro-i18n-02
-git checkout && cd general/astro-i18n-02
+git sparse-checkout set --no-cone /build/multilingual-astro-02
+git checkout && cd build/multilingual-astro-02
 
 ```
 
