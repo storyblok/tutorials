@@ -1,0 +1,62 @@
+---
+import {
+	getLanguageCodes,
+	getCleanSlug,
+	getTranslatedSlug,
+} from '../utils/i18n';
+const { currentLanguage, story } = Astro.props;
+
+const languages = await getLanguageCodes();
+
+const storyFullSlug = story.default_full_slug || story.full_slug;
+let baseSlug = '';
+
+const homeSlugs = languages.map((lang) => `${lang}/home`);
+homeSlugs.push('home');
+if (!homeSlugs.includes(storyFullSlug)) {
+	const slugData = await getCleanSlug(storyFullSlug);
+	baseSlug = slugData.slug;
+}
+
+const additionalLanguageLinks = await Promise.all(
+	languages.map(async (lang) => {
+		const translatedSlug = await getTranslatedSlug(story, lang);
+		const fullSlug = translatedSlug
+			? `${lang}/${translatedSlug === 'home' ? '' : translatedSlug}`
+			: `${lang}/${baseSlug}`;
+
+		return {
+			lang,
+			href: `/${fullSlug}`,
+			active: lang === currentLanguage,
+		};
+	}),
+);
+
+const languageLinks = [
+	{
+		lang: 'en',
+		href: `/${baseSlug}`,
+		active: !currentLanguage || currentLanguage === 'en',
+	},
+	...additionalLanguageLinks,
+];
+---
+
+<header>
+	<label id="language-switcher">Choose a language:</label>
+	<details aria-labelledby="language-switcher">
+		<summary>{currentLanguage || 'en'}</summary>
+		<ul>
+			{
+				languageLinks.map(({ lang, href, active }) => (
+					<li>
+						<a href={href} class={active ? 'active' : ''}>
+							{lang}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</details>
+</header>

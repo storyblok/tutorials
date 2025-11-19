@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Developer guides
+    url: https://www.storyblok.com/docs/guides
+    about: Technology guides, developer concepts, and API references.
+  - name: Developer tutorials
+    url: https://www.storyblok.com/tutorials
+    about: Learn how to ingrate Storyblok with various tools.
+  - name: User manuals
+    url: https://www.storyblok.com/docs/manuals
+    about: Learn how to use Storyblok to create content.

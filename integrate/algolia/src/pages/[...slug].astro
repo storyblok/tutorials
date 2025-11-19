@@ -1,0 +1,53 @@
+---
+import { storyblokApi } from '@storyblok/astro/client';
+import { type ISbStoryData } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import Layout from '../components/Layout.astro';
+const { slug } = Astro.params;
+
+const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
+  version: 'draft',
+});
+const story = data?.story as ISbStoryData;
+---
+
+<Layout>
+  <article class="max-w-screen-md mx-auto">
+    <h1 class="text-4xl font-bold my-4">{story.name}</h1>
+    <img
+      class="aspect-video w-full rounded-lg object-cover"
+      src={story.content.image.filename}
+      alt=""
+    />
+    <StoryblokComponent blok={story.content} />
+  </article>
+</Layout>
+<style is:inline>
+  article h2 {
+    font-size: 1.75rem;
+    margin: 1.5rem 0 1rem;
+    font-weight: 600;
+  }
+  article h3 {
+    font-size: 1.25rem;
+    margin: 1.25rem 0 0.75rem;
+    font-weight: 500;
+  } /* Paragraphs */
+  article p {
+    margin: 0.75rem 0;
+    font-size: 1rem;
+  } /* Unordered lists */
+  article ul {
+    padding-left: 1.25rem; /* 20px */
+    margin: 0.75rem 0;
+    list-style-type: disc;
+  } /* Ordered lists */
+  article ol {
+    padding-left: 1.25rem;
+    margin: 0.75rem 0;
+    list-style-type: decimal;
+  } /* List items */
+  article li {
+    margin-bottom: 0.5rem;
+  }
+</style>

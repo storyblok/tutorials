@@ -1,0 +1,25 @@
+---
+import Header from './Header.astro';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Story Blogger - Fake AI stories</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <footer
+      class="mt-12 border-t border-gray-200 py-6 text-center text-gray-500"
+    >
+      <p>© 2025 Story Blogger. All rights reserved.</p>
+      <p>Made with ❤️ for creators and readers.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+---
+const {
+	blok,
+	author = blok?.author,
+	siteURL = Astro.url.origin,
+	canonicalUrl = Astro.url.href,
+	publishedAt,
+	updatedAt,
+} = Astro.props;
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: blok.title,
+	abstract: blok.summary,
+	dateModified: updatedAt ?? undefined,
+	datePublished: publishedAt,
+	author: {
+		'@type': 'Person',
+		name: author,
+	},
+	image: {
+		'@type': 'ImageObject',
+		height: 1080,
+
+		// Adapt the image path:
+		url: `${siteURL}/path_to_image/filename.webp`,
+		width: 600,
+	},
+	mainEntityOfPage: {
+		'@id': siteURL,
+		'@type': 'WebPage',
+	},
+	publisher: {
+		'@type': 'Organization',
+		logo: {
+			'@type': 'ImageObject',
+			height: 60,
+			url: `${siteURL}/logo.svg`,
+			width: 120,
+		},
+		name: 'Site name',
+		url: siteURL,
+	},
+	url: canonicalUrl,
+};
+---
+
+<script set:html={JSON.stringify(schema)} type="application/ld+json" />

@@ -1,0 +1,19 @@
+{
+	"name": "tutorial-astro-seo",
+	"type": "module",
+	"version": "0.0.1",
+	"keywords": ["search engines", "open graph", "json-ld"],
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"devDependencies": {
+		"@astrojs/sitemap": "^3.4.1",
+		"@storyblok/astro": "^7.2.3",
+		"astro": "^5.13.0",
+		"vite": "^7.1.2",
+		"vite-plugin-mkcert": "^1.17.8"
+	}
+}

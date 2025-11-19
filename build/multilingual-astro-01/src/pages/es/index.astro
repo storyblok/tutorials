@@ -1,0 +1,18 @@
+---
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get('cdn/stories/home', {
+	version: 'draft',
+	resolve_links: 'link',
+	language: 'es',
+});
+
+const story = data.story;
+---
+
+<Layout currentLanguage="es" story={story}>
+	<StoryblokComponent currentLanguage="es" blok={story.content} />
+</Layout>

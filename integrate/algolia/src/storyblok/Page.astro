@@ -1,0 +1,8 @@
+---
+import { richTextToHTML } from '@storyblok/astro/client';
+
+const { blok } = Astro.props;
+const renderedRichText = await richTextToHTML(blok.body);
+---
+
+<Fragment set:html={renderedRichText} />

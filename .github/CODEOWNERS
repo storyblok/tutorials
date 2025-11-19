@@ -1,0 +1,6 @@
+# This directive sets the documentation team as owners
+# of this repo. The purpose is to require approval before
+# merging PRs, setting anyone from the team as reviewers.
+# Learn more:
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners.
+* @storyblok/documentation-learning

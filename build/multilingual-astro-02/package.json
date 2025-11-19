@@ -1,0 +1,21 @@
+{
+	"name": "astro-i18n-02",
+	"type": "module",
+	"version": "0.1.0",
+	"keywords": ["internationalization", "translation", "localization"],
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"devDependencies": {
+		"@storyblok/astro": "^7.1.1",
+		"astro": "^5.10.1",
+		"vite": "^7.0.0",
+		"vite-plugin-mkcert": "^1.17.8"
+	},
+	"dependencies": {
+		"storyblok": "^4.3.2"
+	}
+}

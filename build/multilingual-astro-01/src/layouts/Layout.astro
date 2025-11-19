@@ -1,0 +1,25 @@
+---
+import Header from '../components/Header.astro';
+import AlternateLinks from '../components/AlternateLinks.astro';
+const currentYear = new Date().getFullYear();
+const { currentLanguage, story } = Astro.props;
+---
+
+<!doctype html>
+<html lang={currentLanguage || 'en'}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Storyblok & Astro</title>
+		<link rel="stylesheet" href="/styles/global.css" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<AlternateLinks currentLanguage={currentLanguage} story={story} />
+		<meta name="generator" content={Astro.generator} />
+	</head>
+	<body>
+		<Header currentLanguage={currentLanguage} story={story} />
+		<slot />
+		<footer>All rights reserved © {currentYear}</footer>
+	</body>
+</html>

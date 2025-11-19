@@ -1,0 +1,20 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore log files
+*.log
+
+# Ignore environment files
+.env
+
+# Ignore OS-specific files
+.DS_Store
+
+# build output
+dist/
+
+# frameworks
+.astro/
+
+# misc
+package-lock.json
