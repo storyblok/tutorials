@@ -4,7 +4,7 @@ description:
 tags: 
 ---
 
-# Build a GEO-ready website with Storyblok and Astro
+# Bring your Storyblok data into Claude by coding an MCP server
 
 This repository includes all the code necessary to follow our latest [Bring your Storyblok data into Claude by coding an MCP server](https://www.storyblok.com/tp/bring-your-storyblok-data-into-claude-by-coding-an-mcp-server) tutorial.
 
