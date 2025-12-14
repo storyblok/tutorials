@@ -35,7 +35,7 @@ Explore these tutorials to learn how to take advantage of Storyblok's native fea
 
 - [Integrate Algolia Search into Storyblok with Astro](https://github.com/storyblok/tutorials/tree/main/integrate/algolia)
 - [Bulk update AI-generated meta fields](https://github.com/storyblok/tutorials/tree/main/integrate/ai-seo)
-- [Build a GEO-ready website with Storyblok and Astro](https://github.com/storyblok/tutorials/tree/main/build/seo-astro-02)
+- [Build a GEO-ready website with Storyblok and Astro](https://github.com/storyblok/tutorials/tree/main/build/geo-astro)
 - [Master SEO with Storyblok and Astro](https://github.com/storyblok/tutorials/tree/main/build/seo-astro-01)
 - [Build a Multilingual Website with Storyblok and Astro](https://github.com/storyblok/tutorials/tree/main/build/multilingual-astro-01)
 - [Build a Regionally Localized Website with Storyblok and Astro](https://github.com/storyblok/tutorials/tree/main/build/multilingual-astro-02)
