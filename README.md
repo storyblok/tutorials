@@ -33,16 +33,16 @@ Explore these tutorials to learn how to take advantage of Storyblok's native fea
 
 ## Tutorials list
 
-- [Integrate Algolia Search into Storyblok with Astro](https://github.com/storyblok/tutorials/integrate/algolia)
-- [Bulk update AI-generated meta fields](https://github.com/storyblok/tutorials/integrate/ai-seo)
-- [Build a GEO-ready website with Storyblok and Astro](https://github.com/storyblok/tutorials/build/seo-astro-02)
-- [Master SEO with Storyblok and Astro](https://github.com/storyblok/tutorials/build/seo-astro-01)
-- [Build a Multilingual Website with Storyblok and Astro](https://github.com/storyblok/tutorials/build/multilingual-astro-01)
-- [Build a Regionally Localized Website with Storyblok and Astro](https://github.com/storyblok/tutorials/build/multilingual-astro-02)
-- [Build Accessible Websites with Storyblok and Astro](https://github.com/storyblok/tutorials/build/accessible-astro)
-- [Migrating a Blog Site from Contentful to Storyblok](https://github.com/storyblok/tutorials/migrate/from-contentful)
-- [Bring your Storyblok data into Claude by coding an MCP server](https://github.com/storyblok/tutorials/integrate/mcp)
-- [Integrating ElevenLabs AI Text to Speech with a Headless CMS](https://github.com/storyblok/tutorials/integrate/elevenlabs)
+- [Integrate Algolia Search into Storyblok with Astro](https://github.com/storyblok/tutorials/tree/main/integrate/algolia)
+- [Bulk update AI-generated meta fields](https://github.com/storyblok/tutorials/tree/main/integrate/ai-seo)
+- [Build a GEO-ready website with Storyblok and Astro](https://github.com/storyblok/tutorials/tree/main/build/seo-astro-02)
+- [Master SEO with Storyblok and Astro](https://github.com/storyblok/tutorials/tree/main/build/seo-astro-01)
+- [Build a Multilingual Website with Storyblok and Astro](https://github.com/storyblok/tutorials/tree/main/build/multilingual-astro-01)
+- [Build a Regionally Localized Website with Storyblok and Astro](https://github.com/storyblok/tutorials/tree/main/build/multilingual-astro-02)
+- [Build Accessible Websites with Storyblok and Astro](https://github.com/storyblok/tutorials/tree/main/build/accessible-astro)
+- [Migrating a Blog Site from Contentful to Storyblok](https://github.com/storyblok/tutorials/tree/main/migrate/from-contentful)
+- [Bring your Storyblok data into Claude by coding an MCP server](https://github.com/storyblok/tutorials/tree/main/integrate/mcp)
+- [Integrating ElevenLabs AI Text to Speech with a Headless CMS](https://github.com/storyblok/tutorials/tree/main/integrate/elevenlabs)
 
 > [!TIP]
 > **No Storyblok account yet? [Sign up now](https://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=tutorials) to experience a 14-day free trial of all features.**
