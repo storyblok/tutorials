@@ -1,0 +1,22 @@
+{
+  "name": "weaviate-semantic-search-tutorial",
+  "version": "1.0.0",
+  "description": "Hands-on vector database tutorial with Weaviate - Part 2 of the vector database series",
+  "type": "module",
+  "scripts": {
+    "create-collection": "node scripts/1-create-collection.js",
+    "ingest": "node scripts/2-ingest.js",
+    "search": "node scripts/3-search.js"
+  },
+  "keywords": [
+    "weaviate",
+    "vector-database",
+    "semantic-search",
+    "storyblok",
+    "tutorial"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "weaviate-client": "^3.10.0"
+  }
+}
