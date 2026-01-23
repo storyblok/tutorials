@@ -1,3 +1,69 @@
+## Story Version Caching
+
+Storyblok provides a cache version (`cv`) that changes whenever **anything** is published in a space. If your app always uses the latest space `cv` for every request, you end up forcing new cache keys constantly, which reduces CDN cache hits.
+
+**Story Version Caching** improves this by treating `cv` as a **per-story detail**: we store the last successful `cv` for each story slug and reuse it for future requests. When a story is published, we invalidate only that story’s stored `cv`, so the next request refreshes it.
+
+### Parts involved
+
+- **Storyblok / CDN** — Request published content by slug, optionally including a `cv` value (`/stories/<slug>?cv=<number>`).
+- **Supabase** — Stores the dictionary of `slug → cv` (lightweight key/value storage, not full story JSON).
+- **Webhook (hosted by the frontend/app)** — Called by Storyblok when a story is published; used to invalidate the cached `cv` for that slug.
+
+### Setup
+
+#### Required runtime config values
+
+**Storyblok**
+- `public.storyblokToken` — Storyblok Content Delivery API token (published content)
+
+**Supabase**
+- `supabaseUrl` — Supabase project URL (REST base)
+- `supabaseKey` — Supabase API key used for REST calls
+- `supabaseCacheTable` (optional) — defaults to `edge_cache`
+
+#### Supabase table
+
+Create a table (default: `edge_cache`) with:
+
+- `key` (text) — unique / primary key  
+- `value` (text) — stores the `cv` number  
+- `created_at` (timestamp) — optional  
+
+#### Webhook configuration
+
+This project exposes two Storyblok webhook routes:
+
+- `POST /api/webhooks/storyblok/invalidate/:token`  
+  Invalidation endpoint. Storyblok should call this on publish events. The `:token` path segment is validated against `storyblokWebhookToken` from runtime config.
+
+The webhook is used to invalidate the cached `cv` for a story when content is published. Define a shared token and include it in the webhook URL as a **query parameter**.
+
+Example webhook URL:
+
+```text
+https://your-domain.com/api/webhooks/storyblok?token=abc123
+```
+
+On publish, the webhook handler should delete the cache entry for `storyblok:slug:<full_slug>` so the next request repopulates it.
+
+### What’s included (files)
+
+- `build/story-version-caching/server/caching/StoryVersionCachingService.ts`  
+  Fetch wrapper that reads a cached `cv` for a slug, tries Storyblok with that `cv`, falls back to a normal fetch, then stores the returned `cv`.
+
+- `build/story-version-caching/server/caching/StoryblokClient.ts`  
+  Storyblok CDN client for published stories by slug, with optional `cv`. Returns `{ story, cv }`.
+
+- `build/story-version-caching/server/caching/SupabaseClient.ts`  
+  Supabase REST key/value store used for the `slug → cv` dictionary.
+
+- 'build/story-version-caching/server/api/webhooks/storyblok/invalidate/[token].post.ts'
+Webhook invalidation route (POST /api/webhooks/storyblok/invalidate/:token), removes the cached entry for full_slug.
+
+- `build/story-version-caching/test-webhook.http`  
+  Example HTTP requests for testing webhook endpoints locally and remotely.
+
 
 # Storyblok Core Space Blueprint: Nuxt
 

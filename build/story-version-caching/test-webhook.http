@@ -12,34 +12,3 @@ Content-Type: application/json
   "full_slug": "home",
   "action": "published"
 }
-
-###
-
-### Test Storyblok Webhook - Missing slug
-POST https://localhost:3000/api/webhooks/storyblok/invalidate-{{webhookToken}}
-Content-Type: application/json
-
-{
-  "action": "published"
-}
-
-### Test Storyblok Webhook - Base Route (token in query)
-POST https://localhost:3000/api/webhooks/storyblok?token={{webhookToken}}
-Content-Type: application/json
-
-{
-  "full_slug": "home",
-  "action": "published"
-}
-
-###
-
-### Test Storyblok Webhook - Vercel Success Case
-POST https://storyblok-new-caching-demo-1g3e82tyw-surjit-bharaths-projects.vercel.app/api/webhooks/storyblok/invalidate-{{webhookToken}}?x-vercel-protection-bypass=OUDDgzSSmPZxt6VxzN6t10ym01znKtOw
-Content-Type: application/json
-
-{
-  "full_slug": "about",
-  "action": "published"
-}
-
