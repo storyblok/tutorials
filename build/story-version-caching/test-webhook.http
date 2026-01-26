@@ -1,0 +1,14 @@
+
+
+GET https://localhost:3000/api/webhooks/storyblok
+
+@webhookToken = abc123
+
+### Test Storyblok Webhook - Success Case
+POST https://localhost:3000/api/webhooks/storyblok/invalidate/{{webhookToken}}
+Content-Type: application/json
+
+{
+  "full_slug": "home",
+  "action": "published"
+}
