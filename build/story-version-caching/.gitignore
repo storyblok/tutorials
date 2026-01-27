@@ -10,19 +10,13 @@ dist
 node_modules
 
 # Logs
-logs
 *.log
 
-# Misc
+# Ignore OS-specific files
 .DS_Store
-.fleet
-.idea
 
 # Local env files
 .env
-.env.*
-!.env.example
 
-# Prettier
-.prettierrc
-.vscode/launch.json
+# misc
+package-lock.json

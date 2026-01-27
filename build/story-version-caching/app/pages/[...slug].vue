@@ -1,14 +1,15 @@
 <script setup lang="ts">
-const slug = await getProcessedSlug()
+const slug = await getProcessedSlug();
 
 const { data: cachedStory, error } = await useAsyncData(
-  `story:${slug}`,
-  () => $fetch(`/api/story/${encodeURIComponent(slug)}`),
-  { server: true }
-)
+	`story:${slug}`,
+	() => $fetch(`/api/story/${encodeURIComponent(slug)}`),
+	{ server: true },
+);
 
-if (error.value) throw error.value
-if (!cachedStory.value) throw createError({ statusCode: 404, message: 'Story not found' })
+if (error.value) throw error.value;
+if (!cachedStory.value)
+	throw createError({ message: 'Story not found', statusCode: 404 });
 </script>
 
 <template>

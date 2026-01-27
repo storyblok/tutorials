@@ -29,14 +29,12 @@ export default defineNuxtConfig({
   },
 
     runtimeConfig: {
-      supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL,
-      supabaseKey: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY,
+      supabaseUrl: process.env.SUPABASE_URL,
+      supabaseKey: process.env.SUPABASE_PUBLISHABLE_KEY,
       storyblokWebhookToken: process.env.STORYBLOK_WEBHOOK_TOKEN,
 
     public: {
       storyblokToken: process.env.STORYBLOK_DELIVERY_API_TOKEN,
-      // customParent: process.env.STORYBLOK_CUSTOM_PARENT,
-
       supabaseCacheTable: process.env.NEXT_PUBLIC_SUPABASE_CACHE_TABLE || 'edge_cache',
     },
   },
