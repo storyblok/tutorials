@@ -33,6 +33,7 @@ Explore these tutorials to learn how to take advantage of Storyblok's native fea
 
 ## Tutorials list
 
+- [Vector Search in Practice with Weaviate](https://github.com/storyblok/tutorials/tree/main/build/weaviate)
 - [Integrate Algolia Search into Storyblok with Astro](https://github.com/storyblok/tutorials/tree/main/integrate/algolia)
 - [Bulk update AI-generated meta fields](https://github.com/storyblok/tutorials/tree/main/integrate/ai-seo)
 - [Build a GEO-ready website with Storyblok and Astro](https://github.com/storyblok/tutorials/tree/main/build/geo-astro)
@@ -43,7 +44,6 @@ Explore these tutorials to learn how to take advantage of Storyblok's native fea
 - [Migrating a Blog Site from Contentful to Storyblok](https://github.com/storyblok/tutorials/tree/main/migrate/from-contentful)
 - [Bring your Storyblok data into Claude by coding an MCP server](https://github.com/storyblok/tutorials/tree/main/integrate/mcp)
 - [Integrating ElevenLabs AI Text to Speech with a Headless CMS](https://github.com/storyblok/tutorials/tree/main/integrate/elevenlabs)
-- [Vector Search in Practice with Weaviate](https://github.com/storyblok/tutorials/tree/main/build/weaviate)
 
 > [!TIP]
 > **No Storyblok account yet? [Sign up now](https://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=tutorials) to experience a 14-day free trial of all features.**
