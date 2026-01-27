@@ -1,6 +1,8 @@
 <!--# Pull request template
 
-Complete the following steps before you submit a PR.
+Complete the following steps before you submit a PR:
+
+***
 
 ## Upload a new tutorial to the repo
 
@@ -8,7 +10,7 @@ Complete the following steps before you submit a PR.
 2. You named the project following the pattern `topic-tech`
 3. You placed the project in the correct directory
 4. You updated the cloning instructions in the project's `README` (use [this file](https://github.com/storyblok/tutorials/tree/main/build/geo-astro#1-clone-this-project-from-the-repository) as a template)
-5. You added the project to the list of tutorials in the main `README` file
+5. You added the project to the top of the list of tutorials in the main `README` file
 
 > [!TIP]
 > If you're writing a series of tutorials that use the same codebase, create numbered sub-directories (for example, `multilingual-astro-01`).
@@ -16,11 +18,15 @@ Complete the following steps before you submit a PR.
 If everything is in order, open a PR.
 
 1. Give the PR a descriptive title that starts with `[TUTORIAL] `.
-2. Provide the information below.-->
+2. Provide the information below.
 
-## Description
+***
 
-<!-- A summarized description of the changes. -->
+-->
+
+# Description
+
+<!-- Provide a summarized description of the PR. -->
 
 Select the change the PR introduces:
 
