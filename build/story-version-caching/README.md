@@ -30,8 +30,8 @@ Create a database table (default: `edge_cache`) with the following columns:
 
 ```sh
 git clone --no-checkout --depth 1 --filter=tree:0 https://github.com/storyblok/tutorials.git && cd tutorials
-git sparse-checkout set --no-cone /build/seo-astro
-git checkout && cd build/seo-astro
+git sparse-checkout set --no-cone /build/story-version-caching
+git checkout && cd build/story-version-caching
 
 ```
 
