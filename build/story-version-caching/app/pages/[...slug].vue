@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const slug = await getProcessedSlug();
+const slug = useRoute().params.slug;
 
 const { data: cachedStory, error } = await useAsyncData(
 	`story:${slug}`,
-	() => $fetch(`/api/story/${encodeURIComponent(slug)}`),
+	() => $fetch(`/api/story/${encodeURIComponent(slug && slug.length > 0 ? slug.join('/') : 'home')}`),
 	{ server: true },
 );
 
