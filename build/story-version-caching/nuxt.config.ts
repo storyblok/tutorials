@@ -31,11 +31,12 @@ export default defineNuxtConfig({
     runtimeConfig: {
       supabaseUrl: process.env.SUPABASE_URL,
       supabaseKey: process.env.SUPABASE_PUBLISHABLE_KEY,
+      supabaseCacheTable: process.env.SUPABASE_CACHE_TABLE || 'edge_cache',
       storyblokWebhookToken: process.env.STORYBLOK_WEBHOOK_TOKEN,
 
     public: {
       storyblokToken: process.env.STORYBLOK_DELIVERY_API_TOKEN,
-      supabaseCacheTable: process.env.NEXT_PUBLIC_SUPABASE_CACHE_TABLE || 'edge_cache',
+      supabaseCacheTable: process.env.SUPABASE_CACHE_TABLE || 'edge_cache',
     },
   },
 
