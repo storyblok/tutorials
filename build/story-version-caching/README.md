@@ -13,18 +13,18 @@ This repository includes all the code necessary to follow our [Story Version Cac
 
 ## Get started
 
-Before you start, make sure you have a [Supabase](https://supabase.com/docs) account. This is where we store the `slug → cv` dictionary.
-
+Before you start, make sure you have a [Supabase](https://supabase.com/docs) account.
 
 ### Supabase configuration
 
-Create a database table (default: `edge_cache`) with the following columns:
+Create a database table (default: `edge_cache`) to store the `slug → cv` dictionary. Add the following columns:
 
 - `key` (text): unique/primary key  
 - `value` (text): stores the `cv` number  
 - `created_at` (timestamp): optional  
 
-**No Storyblok account yet? [Sign up now](https://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=tutorials) to experience a 14-day free trial of all features.**
+> [!CAUTION]
+> When creating a new table, Supabase enables Row Level Security (RLS) by default. Either uncheck this option, or [create a policy](https://supabase.com/docs/guides/database/postgres/row-level-security).
 
 ### 1. Clone this project from the repository
 
@@ -40,6 +40,8 @@ git checkout && cd build/story-version-caching
 ```sh
 npm install
 ```
+
+**No Storyblok account yet? [Sign up now](https://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=tutorials) to experience a 45-day free trial of all features.**
 
 ### 3. Authenticate
 
