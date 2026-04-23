@@ -1,0 +1,29 @@
+{
+  "name": "weaviate-rag-tutorial",
+  "version": "1.0.0",
+  "description": "Build a RAG pipeline with Weaviate, Ollama, and Node.js - Part 3 of the vector database series",
+  "type": "module",
+  "scripts": {
+    "test-ollama": "node scripts/0-test-ollama.js",
+    "create-collection": "node scripts/1-create-collection.js",
+    "ingest": "node scripts/2-ingest.js",
+    "ingest-chunks": "node scripts/3-ingest-chunks.js",
+    "search": "node scripts/4-search.js",
+    "ask": "node scripts/5-ask.js",
+    "compare-chunking": "node scripts/6-compare-chunking.js"
+  },
+  "keywords": [
+    "weaviate",
+    "rag",
+    "ollama",
+    "vector-database",
+    "semantic-search",
+    "storyblok",
+    "tutorial"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "weaviate-client": "^3.10.0",
+    "ollama": "^0.5.0"
+  }
+}
