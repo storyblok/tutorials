@@ -1,0 +1,17 @@
+{
+  "name": "vector-db-demo",
+  "version": "1.0.0",
+  "description": "Hands-on vector database tutorial with Weaviate",
+  "type": "module",
+  "scripts": {
+    "ingest": "node scripts/ingest.js",
+    "search": "node scripts/search.js",
+    "rag": "node scripts/rag.js",
+    "fetch-articles": "node fetch-articles.js"
+  },
+  "keywords": ["weaviate", "vector-database", "semantic-search"],
+  "license": "ISC",
+  "dependencies": {
+    "weaviate-client": "^3.10.0"
+  }
+}
