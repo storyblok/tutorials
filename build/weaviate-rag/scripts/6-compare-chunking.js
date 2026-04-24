@@ -21,7 +21,7 @@ function buildPrompt(question, sources) {
     system: `You are a helpful assistant that answers questions based ONLY on the provided context.
 If the context does not contain enough information to answer the question, say so clearly.
 When you use information from a source, cite it by number. Keep answers concise.`,
-    user: `/no_think Context:\n${context}\n\nQuestion: ${question}`,
+    user: `Context:\n${context}\n\nQuestion: ${question}`,
   };
 }
 
@@ -33,6 +33,7 @@ async function generate(prompt) {
       { role: "user", content: prompt.user },
     ],
     stream: true,
+    think: false,
   });
   for await (const chunk of stream) {
     process.stdout.write(chunk.message.content);

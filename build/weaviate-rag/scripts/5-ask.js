@@ -46,9 +46,10 @@ async function generateStream(prompt, model = "qwen3.5:4b") {
     model,
     messages: [
       { role: "system", content: prompt.system },
-      { role: "user", content: "/no_think " + prompt.user },
+      { role: "user", content: prompt.user },
     ],
     stream: true,
+    think: false,
   });
 
   for await (const chunk of stream) {
