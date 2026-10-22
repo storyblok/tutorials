@@ -1,133 +1,86 @@
+---
+title: 
+description: 
+tags: 
+---
+
 # Build an MCP App with Storyblok
 
-This repository contains the working example for the [Build an MCP App with Storyblok](https://storyblok.com/tp/build-mcp-app-with-storyblok) tutorial. The app exposes a `preview_storyblok_story` tool, fetches a Storyblok story, and renders the result as an MCP Apps view inside a compatible host.
+This repository includes all the code necessary to follow our [Build an MCP App with Storyblok](https://www.storyblok.com/tp/build-mcp-app-with-storyblok) tutorial.
 
-The project uses the official [`@modelcontextprotocol/ext-apps`](https://github.com/modelcontextprotocol/ext-apps) package. Storyblok supplies the content; the MCP App supplies the interface shown in the conversation. The server renders Storyblok rich text into the preview, including headings, paragraphs, images, and a generic fallback for nested components.
+[![Try Storyblok free](https://img.shields.io/badge/Try%20Storyblok-dad4ff.svg?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTQuNzA3IDIuNTM4aDIyLjUyOXYyMy41ODdINC43MDd6IiBzdHlsZT0iZmlsbDojZmZmIi8+PHBhdGggZmlsbD0iIzFmMWYxZiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMS43NDMgMi42MDFBMi41OTcgMi41OTcgMCAwIDEgNC4zMzUgMGgyMy4zM2EyLjU5NyAyLjU5NyAwIDAgMSAyLjU5MiAyLjYwMXYyMy40MTFhMi41OTcgMi41OTcgMCAwIDEtMi41OTIgMi42MDJIMTIuNTQ4bC0zLjg3MiAzLjIwOGEuNzcuNzcgMCAwIDEtMS4yNjEtLjU5N3YtMi42MTFoLTMuMDhhMi41OTcgMi41OTcgMCAwIDEtMi41OTItMi42MDJabTUuNjcgMi4xMjdoMTIuNDYyYzIuNjkxIDAgNC44NzMgMi4xOSA0Ljg3MyA0Ljg5IDAgMi4xNjQtMS40IDQtMy4zNDIgNC42NDRhNC44ODcgNC44ODcgMCAwIDEgMy45OSA0LjgxYzAgMi43MDEtMi4xODEgNC44OS00Ljg3MyA0Ljg5SDcuNDEzdi05LjQ1NFptMTAuMzY0IDQuNEgxMS45NXYyLjkzNGg1LjgyOGMuODA4IDAgMS40NjItLjY1NiAxLjQ2Mi0xLjQ2NyAwLS44MS0uNjU0LTEuNDY3LTEuNDYyLTEuNDY3em0tNS44MjggNi41Mmg2LjMxNGMuODk3IDAgMS42MjQuNzMgMS42MjQgMS42MyAwIC45MDEtLjcyNyAxLjYzLTEuNjI0IDEuNjNoLTYuMzE0eiIgY2xpcC1ydWxlPSJldmVub2RkIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOjEuNTE3NzUiLz48L3N2Zz4K&labelColor=ffffff)](https://app.storyblok.com/#/signup?utm_source=docs)
+[![Join the Storyblok Discord community](https://img.shields.io/discord/700316478792138842?style=for-the-badge&logo=discord&label=Join%20our%20community&labelColor=ffffff&color=dad4ff)](https://storyblok.com/join-discord)
 
-## Prerequisites
+## Get started
 
-- A supported Node.js LTS release, version 22.12 or newer.
-- A [Storyblok Preview access token](https://www.storyblok.com/docs/concepts/access-tokens#content-delivery-api-access-tokens) to retrieve draft content.
-- An MCP Apps-compatible host, or the official reference host for local testing.
+Before you start, make sure you have Node.js 22.12 or later and an [MCP Apps-compatible host](https://modelcontextprotocol.io/extensions/apps/overview).
 
-## Run locally
+### 1. Clone this project from the repository
 
-Install the dependencies, copy the environment template, and build the app:
+```sh
+git clone --no-checkout --depth 1 --filter=tree:0 https://github.com/storyblok/tutorials.git && cd tutorials
+git sparse-checkout set --no-cone /build/mcp-app
+git checkout && cd build/mcp-app
+
+```
+
+### 2. Install all dependencies
 
 ```sh
 npm install
-cp .env.example .env
-npm run build
 ```
 
-Set `STORYBLOK_DELIVERY_TOKEN` in `.env` to a Preview access token from **Settings** → **Access Tokens**. Use `draft` so the preview includes unpublished changes. `eu` is the default region; for a space in another region, set `STORYBLOK_REGION` to `us`, `ca`, `ap`, or `cn` as appropriate. Without a token, the server renders a representative fixture so you can test the protocol and UI first. `STORYBLOK_SPACE_ID` is optional and enables the link back to the story in Storyblok.
+**No Storyblok account yet? [Sign up now](https://www.storyblok.com?utm_source=github.com&utm_medium=readme&utm_campaign=tutorials) to experience a 45-day free trial of all features.**
 
-The server uses [`@storyblok/api-client`](https://www.storyblok.com/docs/libraries/js/content-delivery-api-client) to fetch the story. It excludes `alternates` and `translated_slugs`, which this view doesn't use, and maps the response to the fields displayed by the interface.
+### 3. Authenticate
 
-## Article content model
+Rename the file `.env.example` to `.env` and provide your Storyblok Preview access token (find it under **Settings → Access Tokens** in your Storyblok space):
 
-The example expects the following article fields:
+```txt
+STORYBLOK_DELIVERY_TOKEN=<REPLACE_WITH_YOUR_TOKEN>
+```
 
-| Field | Type | Purpose |
-| --- | --- | --- |
-| `title` | Text | Article heading |
-| `intro` | Textarea | Introduction |
-| `author` | Text | Author name |
-| `body` | Richtext | Article body |
+## Set up the space
 
-Create a story with this content type at `articles/mcp-apps-preview`, or pass an existing article's full slug to the tool. Save the story as a draft. Update `normalizeStory()` when your space uses different field names. The example also accepts `headline`, `description`, `summary`, `author_name`, and a rich-text `content` field as fallbacks.
+1. Create a content type with the fields `title` (Text), `intro` (Textarea), `author` (Text), and `body` (Richtext).
+2. Navigate to **Content** and create a story with this content type at `articles/mcp-apps-preview`.
+3. Save the story as a draft.
 
-The rich-text renderer handles the example's `body` field. For nested blocks, adapt `renderEmbeddedComponent()` to the components your content model uses.
+The app also reads the alternative field names `headline`, `description`, `summary`, `author_name`, and a rich-text `content` field. If your space uses other field names, update `normalizeStory()` in `server.ts`.
 
-## Start the server
+## Run the project locally
 
-Start the Streamable HTTP server:
+Build the project and start the server:
 
 ```sh
+npm run build
 npm start
 ```
 
-The MCP endpoint is available at `http://localhost:3001/mcp`.
+The MCP endpoint is available at `http://localhost:3001/mcp`. For desktop hosts that use the stdio transport, run `npm run start:stdio` instead.
 
-To use the stdio transport with a desktop host, run:
+Remote hosts such as ChatGPT need a public HTTPS URL. Deploy the server or expose the local endpoint through a secure tunnel.
 
-```sh
-npm run start:stdio
-```
-
-## Connect a host
-
-### Claude Desktop
-
-Add the compiled stdio entry point to Claude Desktop’s MCP configuration. Replace the path with the absolute path on your machine:
-
-```json
-{
-  "mcpServers": {
-    "storyblok-preview": {
-      "command": "node",
-      "args": ["/absolute/path/to/dist/main.js", "--stdio"],
-      "env": {
-        "STORYBLOK_DELIVERY_TOKEN": "your-preview-access-token",
-        "STORYBLOK_VERSION": "draft",
-        "STORYBLOK_REGION": "eu"
-      }
-    }
-  }
-}
-```
-
-Set `STORYBLOK_REGION` to your space’s region. The example uses `eu`; for a non-EU space, replace it with `us`, `ca`, `ap`, or `cn` as appropriate.
-
-Restart Claude Desktop, then ask it to preview a full Storyblok slug such as `articles/mcp-apps-preview`.
-
-### ChatGPT and remote hosts
-
-Remote hosts need an HTTPS endpoint. Deploy the server or expose the local endpoint through a secure tunnel, then add the `/mcp` URL through the host’s MCP app or developer settings.
-
-### Reference host
-
-The [MCP Apps testing guide](https://modelcontextprotocol.io/extensions/apps/testing) explains how to run the reference host. Point it at the local endpoint:
+To test with the [MCP Apps reference host](https://modelcontextprotocol.io/extensions/apps/testing), point it at the local endpoint:
 
 ```sh
 SERVERS='["http://localhost:3001/mcp"]' npm run start
 ```
 
-Select `preview_storyblok_story`, provide a full story slug, and inspect the rendered view.
-
-### Find stories with Storyblok's MCP server
-
-Also connect [Storyblok's MCP server](https://www.storyblok.com/docs/tooling/mcp-server/setup) to the same host to let the agent find stories by name. Storyblok's server uses the Management API; this preview app still uses its own Preview access token for Content Delivery API requests.
-
-With both servers connected, try the following prompt:
-
-```text
-Find the article called “MCP Apps preview” in my Storyblok space and preview it with preview_storyblok_story.
-```
-
-## Verify the example
-
-Run the build and integration tests:
+Without `STORYBLOK_DELIVERY_TOKEN`, the server renders a sample story, so you can test the app before you connect a space. To run the integration tests, use:
 
 ```sh
 npm test
 ```
 
-The tests cover the compiled HTTP and stdio transports, tool and UI resource registration, fixture mode, and Content Delivery API requests with an intercepted upstream response. They check region selection, draft and published versions, field exclusions, rich-text output, and API errors. They use no live credentials and do not verify a particular host's account setup.
+## Extend the project
 
-## Extend the example with an agent
-
-The project is intentionally small so you can point a coding agent at it and ask for the next feature:
+Point a coding agent at the project and ask for the next feature, for example:
 
 ```text
 Add a component-level preview to this MCP App. Keep the Storyblok token on the server, reuse the existing ui:// resource, and let the preview_storyblok_story tool accept an optional component path. Follow the existing conventions and verify the build.
 ```
 
-Other useful extensions include viewport switching, revision comparisons, a link back to the story in Storyblok, and app-only refresh actions.
+Learn more in the [MCP Apps quickstart](https://modelcontextprotocol.io/extensions/apps/quickstart) and the [Storyblok Visual Editor documentation](https://www.storyblok.com/docs/concepts/visual-editor).
 
-## Learn more
-
-- [MCP Apps overview](https://modelcontextprotocol.io/extensions/apps/overview)
-- [MCP Apps quickstart](https://modelcontextprotocol.io/extensions/apps/quickstart)
-- [Storyblok Content Delivery API](https://www.storyblok.com/docs/api/content-delivery/v2)
-- [Storyblok Visual Editor](https://www.storyblok.com/docs/concepts/visual-editor)
+Happy building!
