@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Storyblok preview</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <div class="brand-mark" aria-hidden="true">S</div>
+        <div>
+          <strong>Storyblok preview</strong>
+          <span id="preview-context">Waiting for a story…</span>
+        </div>
+        <span class="status"><i></i> Draft preview</span>
+      </header>
+
+      <article class="preview" aria-live="polite">
+        <div class="preview-loading" id="preview-loading">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="preview-content" id="preview-content" hidden>
+          <h1 id="story-title"></h1>
+          <p class="dek" id="story-intro"></p>
+          <div class="meta">
+            <span id="story-author"></span>
+            <span id="story-updated"></span>
+          </div>
+          <nav class="toc" id="story-toc" aria-label="In this article" hidden>
+            <strong>In this article</strong>
+            <ul></ul>
+          </nav>
+          <div class="body" id="story-body"></div>
+        </div>
+        <div class="preview-error" id="preview-error" hidden></div>
+      </article>
+
+      <footer class="app-footer">
+        <span id="story-slug"></span>
+        <button type="button" id="open-story">Open in Storyblok</button>
+      </footer>
+    </main>
+    <script type="module" src="/src/mcp-app.ts"></script>
+  </body>
+</html>
