@@ -1,0 +1,21 @@
+---
+import { formatPrice } from '../lib/categories';
+const { story } = Astro.props;
+const product = story.content;
+---
+
+<li>
+  <a href={`/${story.full_slug}`}>{product.title}</a>
+  {product.brand && <> | {product.brand}</>}
+  <>
+    { " | "}
+    {product.sale_price ? (
+      <>
+        <s>{formatPrice(product.price, product.currency)}</s>{' '}
+        {formatPrice(product.sale_price, product.currency)}
+      </>
+    ) : (
+      formatPrice(product.price, product.currency)
+    )}
+  </>
+</li>
