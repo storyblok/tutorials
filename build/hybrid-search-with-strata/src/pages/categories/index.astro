@@ -1,0 +1,41 @@
+---
+import { useStoryblokApi } from '@storyblok/astro';
+import { version } from '../../lib/storyblok';
+import Layout from '../../layouts/Layout.astro';
+import { categories } from '../../lib/categories';
+
+const storyblokApi = useStoryblokApi();
+const products = await storyblokApi.getAll('cdn/stories', {
+  version,
+  content_type: 'product',
+  excluding_fields: 'description,images,features',
+});
+
+const counts: Record<string, number> = {};
+for (const product of products) {
+  const category = product.content.category;
+  counts[category] = (counts[category] ?? 0) + 1;
+}
+---
+
+<Layout title="Categories">
+  <main>
+    <h1>Categories</h1>
+    <ul>
+      {
+        categories.map((category) => (
+          <li>
+            <a class="feature" href={`/categories/${category.value}`}>
+              {category.name}
+              <br />
+              <small>
+                {counts[category.value] ?? 0}{' '}
+                {counts[category.value] === 1 ? 'product' : 'products'}
+              </small>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Layout>

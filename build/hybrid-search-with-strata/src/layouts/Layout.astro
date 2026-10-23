@@ -1,0 +1,40 @@
+---
+import { categories } from '../lib/categories';
+const { title = "" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/categories">Categories</a>
+        {
+          categories.map((category) => (
+            <a href={`/categories/${category.value}`}>{category.name}</a>
+          ))
+        }
+        <form action="/search" method="get" role="search" class="search">
+          <label>
+            Search products
+            <input
+              type="search"
+              name="q"
+              value={Astro.url.searchParams.get('q') ?? ''}
+            />
+            <button type="submit">Search</button>
+          </label>
+        </form>
+      </nav>
+    </header>
+    <slot />
+    <hr />
+    <footer>All rights reserved © {new Date().getFullYear()}</footer>
+  </body>
+</html>
