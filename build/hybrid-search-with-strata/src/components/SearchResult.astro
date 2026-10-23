@@ -3,5 +3,5 @@ const { story } = Astro.props;
 ---
 
 <li>
-  <a href={`/${story.slug}`}>{story.name}</a>
+  <a href={`/${story.full_slug ?? story.slug}`}>{story.name}</a>
 </li>

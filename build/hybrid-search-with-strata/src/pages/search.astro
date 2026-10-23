@@ -99,6 +99,8 @@ const hybridResults = rrf([strataResultsDeduped, keywordResultsRanked])
         ) : (
           <ul>
             {hybridResults.map((item: any) => (
+              // SearchResult only reads full_slug (or, if that's not available,
+              // slug) and name from data
               <SearchResult story={item} />
             ))}
           </ul>
