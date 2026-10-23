@@ -27,12 +27,10 @@ const strataResults: any[] = strataResponse?.data?.results?.map(
   ({ story }: any) => story
 ) ?? [];
 
-// Deduplicate items by storing them in a temporary map, indexed by id, in
-// reverse order to ensure that higher-ranking entires overwrite lower-ranking
-// ones
+// Deduplicate items by storing them in a temporary map, indexed by id
 const strataResultsDeduped = Array.from(
-  new Map(strataResults.reverse().map((item) => [item.id, item])).values()
-).reverse();
+  new Map(strataResults.map((item) => [item.id, item])).values()
+);
 
 let minisearch = new MiniSearch({
   fields: [
