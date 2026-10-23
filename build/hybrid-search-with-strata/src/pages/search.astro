@@ -32,7 +32,7 @@ const strataResultsDeduped = Array.from(
   new Map(strataResults.map((item) => [item.id, item])).values()
 );
 
-let minisearch = new MiniSearch({
+const minisearch = new MiniSearch({
   fields: [
     "name",
     "content.brand",
@@ -57,7 +57,7 @@ let minisearch = new MiniSearch({
 
 minisearch.addAll(keywordResults);
 const keywordResultsRanked = minisearch
-  .search(q)
+  .search(q, { prefix: true, fuzzy: 0.2 })
   .map(({ id, full_slug, content }) => ({ id, slug: full_slug, name: content.title }));
 
 type RRFResult<T extends { id: unknown }> = {
@@ -94,11 +94,11 @@ const hybridResults = rrf([strataResultsDeduped, keywordResultsRanked])
     <h1>{q ? `Results for “${q}”` : 'Search'}</h1>
     {
       q &&
-        (strataResultsDeduped.length === 0 ? (
+        (hybridResults.length === 0 ? (
           <p>No products found.</p>
         ) : (
           <ul>
-            {strataResultsDeduped.map((item: any) => (
+            {hybridResults.map((item: any) => (
               <SearchResult story={item} />
             ))}
           </ul>
