@@ -1,18 +1,6 @@
-# build output
 dist/
-.vercel/
-
-# generated types
 .astro/
-
-# dependencies
 node_modules/
-
-# logs
 npm-debug.log*
-
-# environment variables
 .env
-
-# macOS-specific files
 .DS_Store
