@@ -1,0 +1,63 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import StoryblokRichText from '@storyblok/astro/StoryblokRichText.astro';
+import { categoryName, formatPrice } from '../lib/categories';
+const { blok } = Astro.props;
+const images: any[] = blok.images ?? [];
+const features: string[] = blok.features?.split('\n').filter(Boolean) ?? [];
+---
+
+<main class="product" {...storyblokEditable(blok)}>
+  {
+    blok.category && (
+      <a href={`/categories/${blok.category}`}>
+        ← {categoryName(blok.category)}
+      </a>
+    )
+  }
+  <h1>{blok.title}</h1>
+  {blok.brand && <p>{blok.brand} · SKU {blok.sku}</p>}
+  <p class="product-price">
+    {
+      blok.sale_price ? (
+        <>
+          <s>{formatPrice(blok.price, blok.currency)}</s>{' '}
+          {formatPrice(blok.sale_price, blok.currency)}
+        </>
+      ) : (
+        formatPrice(blok.price, blok.currency)
+      )
+    }
+    {!blok.in_stock && <span> · Out of stock</span>}
+  </p>
+  {
+    images.length > 0 && (
+      <div class="product-images">
+        {images.map((image) => (
+          <img
+            src={`${image.filename}/m/600x0`}
+            alt={image.alt ?? ''}
+          />
+        ))}
+      </div>
+    )
+  }
+  {blok.short_description && <p>{blok.short_description}</p>}
+  {
+    blok.description && (
+      <article>
+        <StoryblokRichText document={blok.description} />
+      </article>
+    )
+  }
+  {
+    features.length > 0 && (
+      <ul>
+        {features.map((feature) => (
+          <li>{feature}</li>
+        ))}
+      </ul>
+    )
+  }
+  {blok.materials && <p>Materials: {blok.materials}</p>}
+</main>

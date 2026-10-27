@@ -1,0 +1,7 @@
+---
+const { story } = Astro.props;
+---
+
+<li>
+  <a href={`/${story.full_slug ?? story.slug}`}>{story.name}</a>
+</li>

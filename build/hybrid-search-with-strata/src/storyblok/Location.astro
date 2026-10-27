@@ -1,0 +1,26 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import StoryblokRichText from '@storyblok/astro/StoryblokRichText.astro';
+const { blok } = Astro.props;
+---
+
+<main {...storyblokEditable(blok)}>
+  <h1>{blok.name}</h1>
+  {
+    blok.image?.filename && (
+      <img src={`${blok.image.filename}/m/900x0`} alt={blok.image.alt ?? ''} />
+    )
+  }
+  <p>
+    {blok.street_address}, {blok.city}, {blok.state} {blok.postal_code}
+  </p>
+  {blok.phone && <p>{blok.phone}</p>}
+  {
+    blok.description && (
+      <article>
+        <StoryblokRichText document={blok.description} />
+      </article>
+    )
+  }
+  {blok.hours && <p style="white-space: pre-line">{blok.hours}</p>}
+</main>

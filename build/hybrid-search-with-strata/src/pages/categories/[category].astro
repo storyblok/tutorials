@@ -1,0 +1,39 @@
+---
+import { useStoryblokApi } from '@storyblok/astro';
+import { version } from '../../lib/storyblok';
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { categories, categoryName } from '../../lib/categories';
+
+const { category = '' } = Astro.params;
+if (!categories.some((c) => c.value === category)) {
+  return new Response(null, { status: 404 });
+}
+
+const storyblokApi = useStoryblokApi();
+const products = await storyblokApi.getAll('cdn/stories', {
+  version,
+  content_type: 'product',
+  sort_by: 'content.title:asc',
+  filter_query: { category: { in: category } },
+});
+const name = categoryName(category);
+---
+
+<Layout title={name}>
+  <main>
+    <a href="/categories">← All categories</a>
+    <h1>{name}</h1>
+    {
+      products.length === 0 ? (
+        <p>No products in this category yet.</p>
+      ) : (
+        <ul>
+          {products.map((story) => (
+            <ProductCard story={story} />
+          ))}
+        </ul>
+      )
+    }
+  </main>
+</Layout>

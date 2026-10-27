@@ -18,12 +18,12 @@ This means that you can find the code for the tutorial **Integrate Algolia Searc
 
 What can you find in each directory:
 
-| Directory | Description                                                                                                                                              |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Build**     | Tutorials focused on building with Storyblok. These examples aren't tied to any specific integration and cover best practices and fundamental web development.                                                                                                             |
-| **Deploy**    | Tutorials that teach you how to deploy your Storyblok project to different hosting services. This is where you find platform-specific examples.                                                             |
-| **Integrate** | Tutorials that help you integrate Storyblok with third-party tools. Some examples cover Storyblok's official apps and plugins, while others focus on standalone services. |
-| **Migrate**   | Tutorials that guide you through a migration process from other content management systems to Storyblok. Some examples also include custom tooling to export data from the target CMS.                                                                      |
+| Directory     | Description                                                                                                                                                                            |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Build**     | Tutorials focused on building with Storyblok. These examples aren't tied to any specific integration and cover best practices and fundamental web development.                         |
+| **Deploy**    | Tutorials that teach you how to deploy your Storyblok project to different hosting services. This is where you find platform-specific examples.                                        |
+| **Integrate** | Tutorials that help you integrate Storyblok with third-party tools. Some examples cover Storyblok's official apps and plugins, while others focus on standalone services.              |
+| **Migrate**   | Tutorials that guide you through a migration process from other content management systems to Storyblok. Some examples also include custom tooling to export data from the target CMS. |
 
 ## Get started
 
@@ -34,6 +34,7 @@ Explore these tutorials to learn how to take advantage of Storyblok's native fea
 ## Tutorials list
 
 - [Build an MCP App with Storyblok](https://github.com/storyblok/tutorials/tree/main/build/mcp-app)
+- [Build a Hybrid Search Feature with Storyblok Strata](https://github.com/storyblok/tutorials/tree/main/build/hybrid-search-with-strata)
 - [Story Version Caching: CV Handling Best Practice](https://github.com/storyblok/tutorials/tree/main/build/story-version-caching)
 - [Vector Search in Practice with Weaviate](https://github.com/storyblok/tutorials/tree/main/build/weaviate)
 - [Integrate Algolia Search into Storyblok with Astro](https://github.com/storyblok/tutorials/tree/main/integrate/algolia)

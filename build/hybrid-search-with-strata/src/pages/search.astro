@@ -1,0 +1,110 @@
+---
+import { useStoryblokApi } from '@storyblok/astro';
+import Layout from '../layouts/Layout.astro';
+import SearchResult from '../components/SearchResult.astro';
+import { version } from '../lib/storyblok';
+import MiniSearch from "minisearch";
+
+const q = Astro.url.searchParams.get('q')?.trim() ?? '';
+
+const storyblokApi = useStoryblokApi();
+const [keywordResults, strataResponse] = q
+  ? await Promise.all([
+      storyblokApi.getAll('cdn/stories', {
+        version,
+        content_type: 'product',
+        search_term: q,
+      }),
+      storyblokApi.get(`cdn/strata/search`, {
+        version,
+        content_type: 'product',
+        q,
+      } as any),
+    ]) : [[], {}];
+
+// Extract { id, slug, name } from Strata results
+const strataResults: any[] = strataResponse?.data?.results?.map(
+  ({ story }: any) => story
+) ?? [];
+
+// Deduplicate items by storing them in a temporary map, indexed by id
+const strataResultsDeduped = Array.from(
+  new Map(strataResults.map((item) => [item.id, item])).values()
+);
+
+const minisearch = new MiniSearch({
+  fields: [
+    "name",
+    "content.brand",
+    "content.title",
+    "content.features",
+    "content.materials",
+    "content.seo_description",
+    "content.short_description",
+  ],
+  storeFields: ["id", "full_slug", "content"],
+  extractField: (doc, fieldName) => {
+    const value = fieldName
+      .split(".")
+      .reduce(
+        (obj, key) =>
+          Array.isArray(obj) ? obj.map((o) => o?.[key]) : obj?.[key],
+        doc,
+      );
+    return Array.isArray(value) ? value.flat(Infinity).join(" ") : value;
+  },
+});
+
+minisearch.addAll(keywordResults);
+const keywordResultsRanked = minisearch
+  .search(q, { prefix: true, fuzzy: 0.2 })
+  .map(({ id, full_slug, content }) => ({ id, slug: full_slug, name: content.title }));
+
+type RRFResult<T extends { id: unknown }> = {
+  id: T["id"];
+  score: number;
+  item: T;
+}
+
+function rrf<T extends { id: unknown }>(
+  lists: Iterable<T[]>,
+  k = 60,
+): RRFResult<T>[] {
+  const scores = new Map<T["id"], RRFResult<T>>();
+  for (const list of lists) {
+    for (let index = 0; index < list.length; index++) {
+      const item = list[index];
+      let entry = scores.get(item.id);
+      if (!entry) {
+        entry = { id: item.id, score: 0, item };
+        scores.set(item.id, entry);
+      }
+      entry.score += 1 / (k + index + 1);
+    }
+  }
+  return Array.from(scores.values()).sort((a, b) => b.score - a.score);
+}
+
+const hybridResults = rrf([strataResultsDeduped, keywordResultsRanked])
+  .map(({ item }) => item);
+---
+
+<Layout title={q ? `Search: ${q}` : 'Search'}>
+  <main>
+    <h1>{q ? `Results for “${q}”` : 'Search'}</h1>
+    {
+      q &&
+        (hybridResults.length === 0 ? (
+          <p>No products found.</p>
+        ) : (
+          <ul>
+            {hybridResults.map((item: any) => (
+              // SearchResult only reads full_slug (or, if that's not available,
+              // slug) and name from data
+              <SearchResult story={item} />
+            ))}
+          </ul>
+        ))
+    }
+  </main>
+</Layout>
