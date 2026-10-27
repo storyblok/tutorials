@@ -33,6 +33,7 @@ Explore these tutorials to learn how to take advantage of Storyblok's native fea
 
 ## Tutorials list
 
+- [Build an MCP App with Storyblok](https://github.com/storyblok/tutorials/tree/main/build/mcp-app)
 - [Build a Hybrid Search Feature with Storyblok Strata](https://github.com/storyblok/tutorials/tree/main/build/hybrid-search-with-strata)
 - [Story Version Caching: CV Handling Best Practice](https://github.com/storyblok/tutorials/tree/main/build/story-version-caching)
 - [Vector Search in Practice with Weaviate](https://github.com/storyblok/tutorials/tree/main/build/weaviate)
