@@ -1,0 +1,14 @@
+{
+  "name": "update-translated-slugs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Scripts for the update-translated-slugs agent skill: add or update translated slugs with the Storyblok Management API",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@storyblok/management-api-client": "^0.9.1",
+    "dotenv": "^18.0.4"
+  }
+}
