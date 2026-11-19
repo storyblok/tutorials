@@ -1,26 +1,25 @@
 ---
-import { storyblokEditable } from '@storyblok/astro';
-import StoryblokRichText from '@storyblok/astro/StoryblokRichText.astro';
-const { blok } = Astro.props;
+import { StoryblokRichText } from '../lib/storyblok';
+const { block, editable } = Astro.props;
 ---
 
-<main {...storyblokEditable(blok)}>
-  <h1>{blok.name}</h1>
+<main {...editable}>
+  <h1>{block.name}</h1>
   {
-    blok.image?.filename && (
-      <img src={`${blok.image.filename}/m/900x0`} alt={blok.image.alt ?? ''} />
+    block.image?.filename && (
+      <img src={`${block.image.filename}/m/900x0`} alt={block.image.alt ?? ''} />
     )
   }
   <p>
-    {blok.street_address}, {blok.city}, {blok.state} {blok.postal_code}
+    {block.street_address}, {block.city}, {block.state} {block.postal_code}
   </p>
-  {blok.phone && <p>{blok.phone}</p>}
+  {block.phone && <p>{block.phone}</p>}
   {
-    blok.description && (
+    block.description && (
       <article>
-        <StoryblokRichText document={blok.description} />
+        <StoryblokRichText document={block.description} />
       </article>
     )
   }
-  {blok.hours && <p style="white-space: pre-line">{blok.hours}</p>}
+  {block.hours && <p style="white-space: pre-line">{block.hours}</p>}
 </main>
