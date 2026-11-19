@@ -11,7 +11,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.11",
-		"@storyblok/astro": "^10.3.1",
+		"@storyblok/astro": "^11.0.0",
 		"astro": "^7.3.3",
 		"typescript": "^6.0.3",
 		"vite": "^8.3.0",
@@ -20,6 +20,7 @@
 	"dependencies": {
 		"@astrojs/netlify": "^8.2.6",
 		"@astrojs/vercel": "^11.0.10",
+		"@storyblok/api-client": "^0.13.0",
 		"minisearch": "^7.2.0"
 	},
 	"overrides": {

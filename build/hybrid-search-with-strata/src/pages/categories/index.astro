@@ -1,11 +1,9 @@
 ---
-import { useStoryblokApi } from '@storyblok/astro';
-import { version } from '../../lib/storyblok';
+import { getAllStories, version } from '../../lib/storyblok';
 import Layout from '../../layouts/Layout.astro';
 import { categories } from '../../lib/categories';
 
-const storyblokApi = useStoryblokApi();
-const products = await storyblokApi.getAll('cdn/stories', {
+const products = await getAllStories({
   version,
   content_type: 'product',
   excluding_fields: 'description,images,features',
@@ -13,7 +11,7 @@ const products = await storyblokApi.getAll('cdn/stories', {
 
 const counts: Record<string, number> = {};
 for (const product of products) {
-  const category = product.content.category;
+  const category = product.content.category as string;
   counts[category] = (counts[category] ?? 0) + 1;
 }
 ---
