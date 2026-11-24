@@ -1,34 +1,33 @@
 ---
-import { storyblokEditable } from '@storyblok/astro';
-import StoryblokRichText from '@storyblok/astro/StoryblokRichText.astro';
+import { StoryblokRichText } from '../lib/storyblok';
 import { categoryName, formatPrice } from '../lib/categories';
-const { blok } = Astro.props;
-const images: any[] = blok.images ?? [];
-const features: string[] = blok.features?.split('\n').filter(Boolean) ?? [];
+const { block, editable } = Astro.props;
+const images: any[] = block.images ?? [];
+const features: string[] = block.features?.split('\n').filter(Boolean) ?? [];
 ---
 
-<main class="product" {...storyblokEditable(blok)}>
+<main class="product" {...editable}>
   {
-    blok.category && (
-      <a href={`/categories/${blok.category}`}>
-        ← {categoryName(blok.category)}
+    block.category && (
+      <a href={`/categories/${block.category}`}>
+        ← {categoryName(block.category)}
       </a>
     )
   }
-  <h1>{blok.title}</h1>
-  {blok.brand && <p>{blok.brand} · SKU {blok.sku}</p>}
+  <h1>{block.title}</h1>
+  {block.brand && <p>{block.brand} · SKU {block.sku}</p>}
   <p class="product-price">
     {
-      blok.sale_price ? (
+      block.sale_price ? (
         <>
-          <s>{formatPrice(blok.price, blok.currency)}</s>{' '}
-          {formatPrice(blok.sale_price, blok.currency)}
+          <s>{formatPrice(block.price, block.currency)}</s>{' '}
+          {formatPrice(block.sale_price, block.currency)}
         </>
       ) : (
-        formatPrice(blok.price, blok.currency)
+        formatPrice(block.price, block.currency)
       )
     }
-    {!blok.in_stock && <span> · Out of stock</span>}
+    {!block.in_stock && <span> · Out of stock</span>}
   </p>
   {
     images.length > 0 && (
@@ -42,11 +41,11 @@ const features: string[] = blok.features?.split('\n').filter(Boolean) ?? [];
       </div>
     )
   }
-  {blok.short_description && <p>{blok.short_description}</p>}
+  {block.short_description && <p>{block.short_description}</p>}
   {
-    blok.description && (
+    block.description && (
       <article>
-        <StoryblokRichText document={blok.description} />
+        <StoryblokRichText document={block.description} />
       </article>
     )
   }
@@ -59,5 +58,5 @@ const features: string[] = blok.features?.split('\n').filter(Boolean) ?? [];
       </ul>
     )
   }
-  {blok.materials && <p>Materials: {blok.materials}</p>}
+  {block.materials && <p>Materials: {block.materials}</p>}
 </main>
